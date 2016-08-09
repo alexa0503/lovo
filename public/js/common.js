@@ -33,42 +33,42 @@ var preload, preload2, preload3, preload4;
 //定义相关JSON格式文件列表
 function setupManifest() {
     /*createjs.Sound.alternateExtensions = ["mp3"];
-    createjs.Sound.registerSound({src: "images/bgm0.mp3",id: "bgm0"});
-	createjs.Sound.registerSound({src: "images/bgm1.mp3",id: "bgm1"});
-	createjs.Sound.registerSound({src: "images/bgm2.mp3",id: "bgm2"});
-	createjs.Sound.registerSound({src: "images/bgm3.mp3",id: "bgm3"});
-	createjs.Sound.registerSound({src: "images/bgm4.mp3",id: "bgm4"});
-	createjs.Sound.registerSound({src: "images/bgm5.mp3",id: "bgm5"});
-	createjs.Sound.registerSound({src: "images/bgm6.mp3",id: "bgm6"});*/
+    createjs.Sound.registerSound({src: "/images/bgm0.mp3",id: "bgm0"});
+	createjs.Sound.registerSound({src: "/images/bgm1.mp3",id: "bgm1"});
+	createjs.Sound.registerSound({src: "/images/bgm2.mp3",id: "bgm2"});
+	createjs.Sound.registerSound({src: "/images/bgm3.mp3",id: "bgm3"});
+	createjs.Sound.registerSound({src: "/images/bgm4.mp3",id: "bgm4"});
+	createjs.Sound.registerSound({src: "/images/bgm5.mp3",id: "bgm5"});
+	createjs.Sound.registerSound({src: "/images/bgm6.mp3",id: "bgm6"});*/
 
     manifest = [];
     manifest.push({
-        src: "images/10.png"
+        src: "/images/10.png"
     });
     manifest.push({
-        src: "images/11.png"
+        src: "/images/11.png"
     });
     manifest.push({
-        src: "images/12.png"
+        src: "/images/12.png"
     });
     manifest.push({
-        src: "images/21.png"
+        src: "/images/21.png"
     });
     manifest.push({
-        src: "images/22.png"
+        src: "/images/22.png"
     });
     manifest.push({
-        src: "images/23.png"
+        src: "/images/23.png"
     });
     manifest.push({
-        src: "images/24.png"
+        src: "/images/24.png"
     });
     manifest.push({
-        src: "images/25.png"
+        src: "/images/25.png"
     });
 
     manifest.push({
-        src: "images/bg2.png"
+        src: "/images/bg2.png"
     });
 
     startPreload();
@@ -77,37 +77,37 @@ function setupManifest() {
 function setupManifest2() {
     manifest2 = [];
     manifest2.push({
-        src: "images/31.png"
+        src: "/images/31.png"
     });
     manifest2.push({
-        src: "images/32.png"
+        src: "/images/32.png"
     });
     manifest2.push({
-        src: "images/41.png"
+        src: "/images/41.png"
     });
     manifest2.push({
-        src: "images/42.png"
+        src: "/images/42.png"
     });
     /*manifest2.push({
-        src: "images/51.png"
+        src: "/images/51.png"
     });*/
     manifest2.push({
-        src: "images/61.png"
+        src: "/images/61.png"
     });
     manifest2.push({
-        src: "images/62.png"
+        src: "/images/62.png"
     });
     manifest2.push({
-        src: "images/63.png"
+        src: "/images/63.png"
     });
     manifest2.push({
-        src: "images/64.png"
+        src: "/images/64.png"
     });
     manifest2.push({
-        src: "images/65.png"
+        src: "/images/65.png"
     });
     manifest2.push({
-        src: "images/66.png"
+        src: "/images/66.png"
     });
     startPreload2();
 }
@@ -115,41 +115,41 @@ function setupManifest2() {
 function setupManifest3() {
     manifest3 = [];
     manifest3.push({
-        src: "images/71.png"
+        src: "/images/71.png"
     });
     manifest3.push({
-        src: "images/81.png"
+        src: "/images/81.png"
     });
     manifest3.push({
-        src: "images/82.png"
+        src: "/images/82.png"
     });
     manifest3.push({
-        src: "images/83.png"
+        src: "/images/83.png"
     });
     manifest3.push({
-        src: "images/84.png"
+        src: "/images/84.png"
     });
     manifest3.push({
-        src: "images/93.png"
+        src: "/images/93.png"
     });
 
     manifest3.push({
-        src: "images/actImg1.png"
+        src: "/images/actImg1.png"
     });
     manifest3.push({
-        src: "images/actImg2.png"
+        src: "/images/actImg2.png"
     });
     manifest3.push({
-        src: "images/actImg3.png"
+        src: "/images/actImg3.png"
     });
     manifest3.push({
-        src: "images/actImg4.png"
+        src: "/images/actImg4.png"
     });
     manifest3.push({
-        src: "images/actImg5.png"
+        src: "/images/actImg5.png"
     });
     manifest3.push({
-        src: "images/actImg6.png"
+        src: "/images/actImg6.png"
     });
 
     startPreload3();
@@ -158,50 +158,50 @@ function setupManifest3() {
 function setupManifest4() {
     manifest4 = [];
     manifest4.push({
-        src: "images/101.png"
+        src: "/images/101.png"
     });
     manifest4.push({
-        src: "images/102.png"
+        src: "/images/102.png"
     });
     manifest4.push({
-        src: "images/103.png"
+        src: "/images/103.png"
     });
     manifest4.push({
-        src: "images/111.png"
+        src: "/images/111.png"
     });
     manifest4.push({
-        src: "images/121.png"
+        src: "/images/121.png"
     });
     manifest4.push({
-        src: "images/131.png"
+        src: "/images/131.png"
     });
     manifest4.push({
-        src: "images/132.png"
+        src: "/images/132.png"
     });
 
     manifest4.push({
-        src: "images/ai1.png"
+        src: "/images/ai1.png"
     });
     manifest4.push({
-        src: "images/ai2.png"
+        src: "/images/ai2.png"
     });
     manifest4.push({
-        src: "images/ai3.png"
+        src: "/images/ai3.png"
     });
     manifest4.push({
-        src: "images/ai4.png"
+        src: "/images/ai4.png"
     });
     manifest4.push({
-        src: "images/ai5.png"
+        src: "/images/ai5.png"
     });
     manifest4.push({
-        src: "images/ai6.png"
+        src: "/images/ai6.png"
     });
     manifest4.push({
-        src: "images/ai7.png"
+        src: "/images/ai7.png"
     });
     manifest4.push({
-        src: "images/ai8.png"
+        src: "/images/ai8.png"
     });
 
     startPreload4();

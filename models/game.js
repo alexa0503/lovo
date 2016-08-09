@@ -1,12 +1,13 @@
 var mongoose = require('mongoose');
 var mongoosePaginate = require('mongoose-paginate');
-var schema = mongoose.Schema({
+var GameSchema = mongoose.Schema({
 	sid: String,
 	joinId: String,
-	createdAt: Date,
-    ipAddress: String
+	createdAt: { type: Date, default: Date.now },
+    ipAddress: String,
+	status: { type: Number, default:0 }
 });
 
-schema.plugin(mongoosePaginate);
-var game = mongoose.model('t_game', schema);
-module.exports = game;
+GameSchema.plugin(mongoosePaginate);
+var GameModel = mongoose.model('t_game', GameSchema);
+module.exports = GameModel;

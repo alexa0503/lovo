@@ -1,0 +1,319 @@
+<div class="bgOuter">
+	<div class="innerDiv">
+		<div class="bg1 moveBg1"></div>
+		<div class="bg2 moveBg2" style="display:none;"></div>
+	</div>
+</div>
+
+<div class="pageOuter">
+	<div class="innerDiv">
+		<div class="page page0">
+			<div class="loadImg1">
+				<div class="innerDiv">
+					<div class="loadImg2" style=" height:0;"></div>
+				</div>
+			</div>
+			<div class="loadImg3"></div>
+			<div class="loadImg4"></div>
+		</div>
+
+		<div class="page page1" style="display:none;">
+			<div class="h832">
+				<div class="innerDiv">
+					<div class="pageLogo page1Logo bgImg" style="display:none"></div>
+					<div class="page11 bgImg" style="display:none"></div>
+					<div class="page12 bgImg" style="display:none"></div>
+					<div class="page13 bgImg" style="display:none"></div>
+					<div class="page14 bgImg" style="display:none"></div>
+					<div class="page15 bgImg" style="display:none"></div>
+					<div class="page16 bgImg" style="display:none"></div>
+					<img src="/images/space.gif" width="308" height="32" class="abs page1Btn1" style="display:none">
+					<img src="/images/space.gif" width="160" height="195" class="abs page1Btn2" style="display:none" ontouchend="createGame();">
+					<img src="/images/67.png" class="abs page1Btn3" style=" padding:20px; display:none" onClick="showRule();">
+				</div>
+			</div>
+		</div>
+
+		<div class="page page2" style="display:none;">
+			<div class="h832">
+				<div class="innerDiv">
+					<div class="pageLogo page2Logo bgImg"></div>
+					<div class="page21 bgImg"></div>
+					<div class="page23 bgImg"></div>
+					<div class="page24 bgImg"></div>
+					<div class="page25 bgImg"></div>
+					<p class="abs countdown">60</p>
+					<img src="/images/qc.jpg" class="abs page2qc">
+				</div>
+			</div>
+		</div>
+
+		<div class="page page3" style="display:none;">
+			<div class="h832">
+				<div class="innerDiv">
+					<div class="pageLogo page3Logo bgImg"></div>
+					<div class="page31 bgImg" style="display:none;"></div>
+					<div class="page32 bgImg"></div>
+					<div class="page24 page34 bgImg"></div>
+					<a href="javascript:void(0);" class="abs page3Btn1" onClick="tryAgain();"><img src="/images/43.png"></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="page page4" style="display:none;">
+			<div class="h832">
+				<div class="innerDiv">
+					<div class="pageLogo page4Logo bgImg"></div>
+					<div class="page41 bgImg"></div>
+					<div class="page42 bgImg"></div>
+					<a href="javascript:void(0);" class="abs page3Btn1" id="open"><img src="/images/33.png"></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="page pageAct" style="display:none;">
+			<div class="h832">
+				<div class="innerDiv">
+					<div class="actStep1">
+						<div class="a1Bottle bgImg"></div>
+						<div class="abs actImg5 actImg51"></div>
+						<div class="abs actImg5 actImg52"></div>
+						<div class="abs actImg5 actImg53"></div>
+						<div class="abs actImg5 actImg54"></div>
+						<div class="abs actImg5 actImg55"></div>
+						<div class="abs actImg5 actImg56"></div>
+						<div class="abs actImg5 actImg57"></div>
+						<div class="abs ai1"></div>
+						<div class="abs ai2"></div>
+						<div class="abs ai3"></div>
+						<div class="abs ai4"></div>
+						<div class="abs ai5"></div>
+						<div class="abs ai6"></div>
+						<div class="abs ai7"></div>
+						<div class="abs ai8"></div>
+						<div class="abs actImg6"></div>
+						<div class="a1Cap bgImg"></div>
+						<div class="abs aImg1" style="left:862px;"></div>
+					</div>
+
+					<div class="abs actImg4"></div>
+					<div class="pageActImg1 bgImg" style="display:none;"></div>
+					<div class="pageActImg2 bgImg" style="display:none;"></div>
+					<div class="pageActImg3 bgImg" style="display:none;"></div>
+					<a href="javascript:void(0);" class="abs pageActBtn1" onClick="getLottery();"><img src="/images/space.gif" width="410" height="510"></a>
+					<a href="javascript:void(0);" class="abs pageActBtn2" onClick="showRule();" style="display:none;"><img src="/images/112.png"></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="page pageRes1" style="display:none;">
+			<div class="h832">
+				<div class="innerDiv">
+					<div class="pageRes11 bgImg"></div>
+					<div class="pageRes12 bgImg"></div>
+					<div class="pageResTitle">获得<font style="color:#ffd800; text-shadow:#000 4px 0 0,#000 0 4px 0,#000 -4px 0 0,#000 0 -4px 0;">100</font>元红包</div>
+					<div class="pageResNumb">￥100</div>
+					<div class="pageRes13 bgImg"></div>
+					<a href="index.html" class="abs pageRes1Btn1"><img src="/images/85.png"></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="page pageRes2" style="display:none;">
+			<div class="h832">
+				<div class="innerDiv">
+					<div class="pageRes11 bgImg"></div>
+					<div class="pageRes21 bgImg"></div>
+					<a href="javascript:void(0);" class="abs pageRes2Btn1" onClick="showRule();"><img src="/images/112.png"></a>
+					<a href="index.html" class="abs pageRes1Btn1"><img src="/images/85.png"></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="page pageRes3" style="display:none;">
+			<div class="h832">
+				<div class="innerDiv">
+					<div class="pageRes11 bgImg"></div>
+					<div class="pageRes31 bgImg"></div>
+					<a href="javascript:void(0);" class="abs pageRes3Btn1" onClick="showRule();"><img src="/images/112.png"></a>
+					<a href="index.html" class="abs pageRes1Btn1"><img src="/images/85.png"></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="page pageRes4" style="display:none;">
+			<div class="h832">
+				<div class="innerDiv">
+					<div class="pageRes11 bgImg"></div>
+					<div class="pageRes41 bgImg"></div>
+					<div class="pageRes42 bgImg"></div>
+					<div class="pageRes43 bgImg"></div>
+					<p class="abs code">CODE123456</p>
+					<a href="index.html" class="abs pageRes1Btn1"><img src="/images/85.png"></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="page pageProduct" style="display:none;">
+			<div class="h832">
+				<div class="innerDiv">
+					<div class="pageLogo pageProductLogo bgImg"></div>
+
+					<a href="#" class="abs pageProductBtn1"><img src="/images/91.png"></a>
+					<a href="javascript:void(0);" class="abs pageProductBtn2" onClick="showRule();"><img src="/images/92.png"></a>
+
+					<div class="abs productList">
+						<div class="productOuter">
+							<div class="productInit">
+								<div class="innerDiv">
+									<a href="#" class="abs ptImg"><img src="/images/ai1.png"></a>
+									<a href="#" class="abs pdTxt1">产品产品产品产品产品</a>
+									<a href="#" class="abs pdTxt2">999<font>元</font></a>
+									<a href="#" class="abs pdBtn"><img src="/images/94.png"></a>
+								</div>
+							</div>
+							<div class="productInit">
+								<div class="innerDiv">
+									<a href="#" class="abs ptImg"><img src="/images/ai1.png"></a>
+									<a href="#" class="abs pdTxt1">产品产品产品产品产品</a>
+									<a href="#" class="abs pdTxt2">999<font>元</font></a>
+									<a href="#" class="abs pdBtn"><img src="/images/94.png"></a>
+								</div>
+							</div>
+							<div class="productInit">
+								<div class="innerDiv">
+									<a href="#" class="abs ptImg"><img src="/images/ai1.png"></a>
+									<a href="#" class="abs pdTxt1">产品产品产品产品产品</a>
+									<a href="#" class="abs pdTxt2">999<font>元</font></a>
+									<a href="#" class="abs pdBtn"><img src="/images/94.png"></a>
+								</div>
+							</div>
+							<div class="productInit">
+								<div class="innerDiv">
+									<a href="#" class="abs ptImg"><img src="/images/ai1.png"></a>
+									<a href="#" class="abs pdTxt1">产品产品产品产品产品</a>
+									<a href="#" class="abs pdTxt2">999<font>元</font></a>
+									<a href="#" class="abs pdBtn"><img src="/images/94.png"></a>
+								</div>
+							</div>
+							<div class="productInit">
+								<div class="innerDiv">
+									<a href="#" class="abs ptImg"><img src="/images/ai1.png"></a>
+									<a href="#" class="abs pdTxt1">产品产品产品产品产品</a>
+									<a href="#" class="abs pdTxt2">999<font>元</font></a>
+									<a href="#" class="abs pdBtn"><img src="/images/94.png"></a>
+								</div>
+							</div>
+							<div class="productInit">
+								<div class="innerDiv">
+									<a href="#" class="abs ptImg"><img src="/images/ai1.png"></a>
+									<a href="#" class="abs pdTxt1">产品产品产品产品产品</a>
+									<a href="#" class="abs pdTxt2">999<font>元</font></a>
+									<a href="#" class="abs pdBtn"><img src="/images/94.png"></a>
+								</div>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page pageRule" style="display:none;">
+			<div class="h832">
+				<div class="innerDiv">
+					<div class="pageRuleImg bgImg"></div>
+					<div class="abs pageRuleTxt">
+						<p>凡于活动期间（自2016年8月15日起至2016年8月26日止）访问【可乐盛世】双屏互动活动，即有机会获得无门槛券红包，并有丰厚奖品送出。</p>
+
+						<p><span>互动方式：</span>
+							<br> 第一步：进入【可乐盛世】双屏互动，点击“开一瓶”，邀请1位好友扫码加入
+							<br> 第二步：好友扫码成功，点击“开瓶“和好友一起体验可乐带来的惊喜
+							<br> 第三步：体验完成，复制淘口令，打开淘宝app获得抽奖机会，100%中奖（红包金额随机）。
+						</p>
+
+						<p><span>奖品发放规则：</span>
+							<br> 1. 通过完成游戏获取淘宝口令，并有机会获得5元、10元、20元、50元、100元无门槛红包，以及LOVO实物奖品；
+							<br> 2. 每个用户最多可以中奖4次；每个用户参与次数不封顶，每天最多可中奖2次；
+							<br> 3. 中奖红包可叠加使用且可与店铺优惠券叠加使用</p>
+
+						<p>备注：红包仅限于天猫罗莱家纺官方旗舰店使用，红包不得提现，不找零！
+							<br> 红包使用时间：2016年8月24日至2016年8月26日
+						</p>
+
+						<p><span>活动声明：</span>
+							<br> 1. 本次活动由罗莱家纺官方旗舰店主办（以下简称“活动主办方’）
+							<br> 2. 如果发现有参与者在活动中使用任何不正当的手段，活动主办方有权取消其参赛资格
+							<br> 3. 在法律允许范围内，活动最终解释权归活动主办方所有。</p>
+					</div>
+					<a href="javascript:void(0);" class="abs pageRuleBtn1" onClick="closeRule();"><img src="/images/space.gif" width="36" height="36"></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="page pageError" style="display:none;">
+			<div class="h832">
+				<div class="innerDiv">
+					<h2 style="position:absolute; left:0; top:100px; font-size:30px; text-align:center; width:640px;" id="err_msg">出错啦！</h2>
+					<!--<a href="index.html" class="abs page3Btn1"><img src="/images/43.png"></a>-->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="loadingBg" style="display:none;"></div>
+<img src="/images/loading.gif" width="80" height="80" class="loadingGif" style="display:none;">
+
+{{#section 'scripts'}}
+
+	<script>
+		var isConnect = true;
+		var socket = io.connect('http://lovo.himyweb.com:3000');
+		var id = null;
+		socket.on('connect', function() {
+
+		});
+		socket.on('create message', function(data) {
+			console.log(data);
+			if (typeof(data) != undefined && data.imgData) {
+				$('.page2qc').attr('src', data.imgData);
+				goPage2();
+				id = data.id;
+			} else {
+				isConnect = false;
+				showError('创建失败，请重试~');
+			}
+		});
+		socket.on('join message', function(data) {
+			if (data.ret == 0) {
+				getMobile2();
+			}
+		});
+		socket.on('leave message', function(data) {
+			if (data.ret == 0) {
+				showError('游戏参与者离开了游戏~');
+			}
+		});
+
+		function createGame() {
+			socket.emit('create', '');
+		}
+
+		function open() {
+			socket.emit('open', id, function(data) {
+				if (data.ret == 0) {
+					getAct();
+				}
+			});
+		}
+		var pageNumb = 1;
+		$(document).ready(function() {
+			loadImg();
+			$('#open').click(function(event) {
+				open();
+			});
+		});
+	</script>
+
+{{/section}}
