@@ -155,7 +155,7 @@ io.sockets.on('connection', function(socket) {
     });
     socket.on('join', function (id, fn) {
         Game.findById(id, function(err, result) {
-            if (err) {
+            if (err || !result) {
                 fn({
                     ret: 1001,
                     msg: '没有找到游戏嗷~',
