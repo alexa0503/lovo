@@ -515,7 +515,5 @@ function showError(err_msg) {
     $('#err_msg').html(err_msg);
 }
 function hideError() {
-    $('body').addClass('noImg');
-    $('.page').show();
     $('.pageError').hide();
 }

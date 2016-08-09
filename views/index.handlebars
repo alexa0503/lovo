@@ -296,7 +296,7 @@
 				getMobile2();
 			}
 		});
-		socket.on('leave message', function(data) {
+		socket.on('player leave message', function(data) {
 			if (data.ret == 0) {
 				isConnect = false;
 				showError('游戏参与者离开了游戏~');

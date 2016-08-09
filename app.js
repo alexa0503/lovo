@@ -134,8 +134,8 @@ io.sockets.on('connection', function(socket) {
     var host = socket.handshake.headers.host;
     socket.on('create', function(data) {
         var gameData = {
-            sid: sessionID,
-            joinId: null,
+            creatorId: sessionID,
+            playerId: null,
             createdAt: Date.now(),
             ipAddress: address
         };
@@ -143,11 +143,12 @@ io.sockets.on('connection', function(socket) {
             if (err) console.log(err);
             else {
                 var url = 'http://lovo.himyweb.com/join/' + game._id;
-                socket.join(game._id);
                 qr.toDataURL(url, {
                     'margin': 0,
                     'scale': 6
                 }, function(error, dataURL) {
+                    socket.creatorId = sessionID;
+                    socket.gameId = game._id;
                     if (error) console.log(error);
                     socket.join(game._id);
                     console.log('create:', 'session id:'+sessionID, 'game id:'+game._id);
@@ -168,12 +169,12 @@ io.sockets.on('connection', function(socket) {
                     ret: 1001,
                     msg: '没有找到游戏嗷~',
                 });
-            } else if (result.sid == sessionID) {
+            } else if (result.creatorId == sessionID) {
                 fn({
                     ret: 1002,
                     msg: '不能加入自己创建游戏~',
                 });
-            } else if (result.status == 1) {
+            } else if (result.status == 2) {
                 fn({
                     ret: 1003,
                     msg: '游戏已结束~',
@@ -183,15 +184,16 @@ io.sockets.on('connection', function(socket) {
                     ret: 1004,
                     msg: '游戏已超时~',
                 });
-            } else if (result.joinId != null && result.joinId != sessionID) {
-                console.log('join:', 'session id:'+sessionID, 'join id:'+result.joinId);
+            } else if (result.playerId != null && result.playerId != sessionID) {
+                console.log('join:', 'session id:'+sessionID, 'join id:'+result.playerId);
                 fn({
                     ret: 1005,
                     msg: '抱歉，游戏已有其他用户加入~',
                 });
             } else {
-                //更新joinId
-                result.joinId = sessionID;
+                //更新playerId
+                result.playerId = sessionID;
+                result.status = 1;
                 result.save(function(err) {
                     if (err) console.log(err);
                     fn({
@@ -199,11 +201,11 @@ io.sockets.on('connection', function(socket) {
                         msg: '',
                     });
                     console.log('join:', 'session id:'+sessionID, 'game id:'+socket.gameId);
-                    socket.joinId = sessionID;
+                    socket.playerId = sessionID;
                     socket.join(id);
                     socket.broadcast.to(id).emit('join message', {
                         ret: 0,
-                        joinId: sessionID,
+                        playerId: sessionID,
                     });
                 });
             }
@@ -218,20 +220,20 @@ io.sockets.on('connection', function(socket) {
                     msg: '没有找到游戏嗷~',
                 });
             }
-            else if(result.joinId == null){
+            else if(result.playerId == null){
                 fn({
                     ret: 1002,
                     msg: '游戏还没有参与者哦,不能直接开瓶'
                 });
             }
-            else if(sessionID != result.sid && sessionID != result.joinId){
+            else if(sessionID != result.creatorId && sessionID != result.playerId){
                 fn({
                     ret: 1003,
                     msg: '您不是游戏的创建者或参与者'
                 });
             }
             else{
-                result.status = 1;
+                result.status = 2;
                 result.save(function(err) {
                     if (err) console.log(err);
                     fn({
@@ -250,11 +252,22 @@ io.sockets.on('connection', function(socket) {
     })
 
     socket.on('disconnect', function () {
-        if( socket.gameId ){
+        //参与者离开游戏
+        if( socket.playerId ){
             var id = socket.gameId;
             socket.leave(id);
-            console.log('disconnect:', 'session id:'+sessionID, 'game id:'+socket.gameId);
-            socket.broadcast.to(id).emit('leave message', {
+            console.log('player disconnect:', 'session id:'+sessionID, 'game id:'+socket.gameId);
+            socket.broadcast.to(id).emit('player leave message', {
+                ret: 0,
+                msg: ''
+            });
+        }
+        //创建者离开游戏
+        if( socket.creatorId ){
+            var id = socket.gameId;
+            socket.leave(id);
+            console.log('creator disconnect:', 'session id:'+sessionID, 'game id:'+socket.gameId);
+            socket.broadcast.to(id).emit('creator leave message', {
                 ret: 0,
                 msg: ''
             });

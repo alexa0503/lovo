@@ -241,6 +241,12 @@
                 getAct();
             }
         });
+        socket.on('creator leave message', function(data) {
+			if (data.ret == 0) {
+				isConnect = false;
+				showError('游戏创建者离开了游戏~');
+			}
+		});
 
         var pageNumb = 2;
         $(document).ready(function() {

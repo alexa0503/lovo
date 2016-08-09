@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var mongoosePaginate = require('mongoose-paginate');
 var GameSchema = mongoose.Schema({
-	sid: String,
+	creatorId: String,
 	joinId: String,
 	createdAt: { type: Date, default: Date.now },
     ipAddress: String,
