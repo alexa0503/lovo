@@ -66,9 +66,11 @@ function setupManifest() {
     manifest.push({
         src: "images/25.png"
     });
-	
-	manifest.push({src: "images/bg2.png"});
-	
+
+    manifest.push({
+        src: "images/bg2.png"
+    });
+
     startPreload();
 }
 
@@ -98,7 +100,7 @@ function setupManifest2() {
     manifest2.push({
         src: "images/63.png"
     });
-	manifest2.push({
+    manifest2.push({
         src: "images/64.png"
     });
     manifest2.push({
@@ -130,14 +132,26 @@ function setupManifest3() {
     manifest3.push({
         src: "images/93.png"
     });
-	
-	manifest3.push({src: "images/actImg1.png"});
-	manifest3.push({src: "images/actImg2.png"});
-	manifest3.push({src: "images/actImg3.png"});
-	manifest3.push({src: "images/actImg4.png"});
-	manifest3.push({src: "images/actImg5.png"});
-	manifest3.push({src: "images/actImg6.png"});
-	
+
+    manifest3.push({
+        src: "images/actImg1.png"
+    });
+    manifest3.push({
+        src: "images/actImg2.png"
+    });
+    manifest3.push({
+        src: "images/actImg3.png"
+    });
+    manifest3.push({
+        src: "images/actImg4.png"
+    });
+    manifest3.push({
+        src: "images/actImg5.png"
+    });
+    manifest3.push({
+        src: "images/actImg6.png"
+    });
+
     startPreload3();
 }
 
@@ -164,16 +178,32 @@ function setupManifest4() {
     manifest4.push({
         src: "images/132.png"
     });
-	
-	manifest4.push({src: "images/ai1.png"});
-	manifest4.push({src: "images/ai2.png"});
-	manifest4.push({src: "images/ai3.png"});
-	manifest4.push({src: "images/ai4.png"});
-	manifest4.push({src: "images/ai5.png"});
-	manifest4.push({src: "images/ai6.png"});
-	manifest4.push({src: "images/ai7.png"});
-	manifest4.push({src: "images/ai8.png"});
-	
+
+    manifest4.push({
+        src: "images/ai1.png"
+    });
+    manifest4.push({
+        src: "images/ai2.png"
+    });
+    manifest4.push({
+        src: "images/ai3.png"
+    });
+    manifest4.push({
+        src: "images/ai4.png"
+    });
+    manifest4.push({
+        src: "images/ai5.png"
+    });
+    manifest4.push({
+        src: "images/ai6.png"
+    });
+    manifest4.push({
+        src: "images/ai7.png"
+    });
+    manifest4.push({
+        src: "images/ai8.png"
+    });
+
     startPreload4();
 }
 
@@ -288,7 +318,7 @@ function loadImg() {
 var isGo1 = false;
 
 function goPage1() {
-    if (!isGo1&&isConnect) {
+    if (!isGo1 && isConnect) {
         isGo1 = true;
         //bgm0=createjs.Sound.play("bgm0",{interrupt: createjs.Sound.INTERRUPT_ANY, loop:-1});
         $('body').removeClass('noImg');
@@ -478,8 +508,9 @@ function getLottery() {
 
 }
 
-function showError(){
-	$('body').removeClass('noImg');
-	$('.page').hide();
-	$('.pageError').show();
-	}
+function showError(err_msg) {
+    $('body').removeClass('noImg');
+    $('.page').hide();
+    $('.pageError').show();
+    $('#err_msg').html(err_msg);
+}
