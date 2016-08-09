@@ -66,6 +66,9 @@ function setupManifest() {
     manifest.push({
         src: "images/25.png"
     });
+	
+	manifest.push({src: "images/bg2.png"});
+	
     startPreload();
 }
 
@@ -83,9 +86,9 @@ function setupManifest2() {
     manifest2.push({
         src: "images/42.png"
     });
-    manifest2.push({
+    /*manifest2.push({
         src: "images/51.png"
-    });
+    });*/
     manifest2.push({
         src: "images/61.png"
     });
@@ -95,12 +98,7 @@ function setupManifest2() {
     manifest2.push({
         src: "images/63.png"
     });
-    startPreload2();
-}
-
-function setupManifest3() {
-    manifest3 = [];
-    manifest3.push({
+	manifest3.push({
         src: "images/64.png"
     });
     manifest3.push({
@@ -109,6 +107,11 @@ function setupManifest3() {
     manifest3.push({
         src: "images/66.png"
     });
+    startPreload2();
+}
+
+function setupManifest3() {
+    manifest3 = [];
     manifest3.push({
         src: "images/71.png"
     });
@@ -127,6 +130,14 @@ function setupManifest3() {
     manifest3.push({
         src: "images/93.png"
     });
+	
+	manifest3.push({src: "images/actImg1.png"});
+	manifest3.push({src: "images/actImg2.png"});
+	manifest3.push({src: "images/actImg3.png"});
+	manifest3.push({src: "images/actImg4.png"});
+	manifest3.push({src: "images/actImg5.png"});
+	manifest3.push({src: "images/actImg6.png"});
+	
     startPreload3();
 }
 
@@ -153,6 +164,16 @@ function setupManifest4() {
     manifest4.push({
         src: "images/132.png"
     });
+	
+	manifest4.push({src: "images/ai1.png"});
+	manifest4.push({src: "images/ai2.png"});
+	manifest4.push({src: "images/ai3.png"});
+	manifest4.push({src: "images/ai4.png"});
+	manifest4.push({src: "images/ai5.png"});
+	manifest4.push({src: "images/ai6.png"});
+	manifest4.push({src: "images/ai7.png"});
+	manifest4.push({src: "images/ai8.png"});
+	
     startPreload4();
 }
 
@@ -430,7 +451,15 @@ function getLottery() {
     /*closeLoading();
     $('.pageAct').hide();
     $('.pageRes1').show();
-    $('.pageRes13').addClass('pageRes13Act');*/
+    $('.pageRes13').addClass('pageRes13Act');
+	$('.pageRes13').touchwipe({
+		min_move_x: 40, //横向灵敏度
+		min_move_y: 40, //纵向灵敏度
+ 		wipeUp: function() {
+			goProduct();
+			}, //向上滑动事件
+ 		preventDefaultEvents: true //阻止默认事件
+		});*/
 
     //已经开过红包
     /*closeLoading();
