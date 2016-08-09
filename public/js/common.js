@@ -477,3 +477,8 @@ function getLottery() {
     $('.pageRes4').show();
 
 }
+
+function showError(){
+	$('.page').hide();
+	$('.pageError').show();
+	}

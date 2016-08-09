@@ -286,6 +286,15 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="page pageError" style="display:none;">
+                <div class="h832">
+                	<div class="innerDiv">
+                    	<h2 style="position:absolute; left:0; top:100px; font-size:30px; text-align:center; width:640px;">出错啦！</h2>
+                        <a href="index.html" class="abs page3Btn1"><img src="images/43.png"></a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -305,7 +314,8 @@
                 goPage2();
                 id = data.id;
             } else {
-                alert('创建失败~请重试~');
+				showError();
+                //alert('创建失败~请重试~');
             }
         });
         socket.on('join message', function(data) {
