@@ -269,10 +269,13 @@
 
 	<script>
 		var isConnect = true;
+		var hasError = false;
 		var socket = io.connect('http://lovo.himyweb.com:3000');
 		var id = null;
 		socket.on('connect', function() {
-
+			if( isConnect == false){
+				hideError();
+			}
 		});
 		socket.on('create message', function(data) {
 			console.log(data);
@@ -280,6 +283,7 @@
 				$('.page2qc').attr('src', data.imgData);
 				goPage2();
 				id = data.id;
+
 			} else {
 				isConnect = false;
 				showError('创建失败，请重试~');
@@ -292,6 +296,7 @@
 		});
 		socket.on('leave message', function(data) {
 			if (data.ret == 0) {
+				isConnect = false;
 				showError('游戏参与者离开了游戏~');
 			}
 		});

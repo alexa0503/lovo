@@ -179,6 +179,7 @@ io.sockets.on('connection', function(socket) {
                     msg: '游戏已超时~',
                 });
             } else if (result.joinId != null && result.joinId != sessionID) {
+                console.log('join:', 'session id:'+sessionID, 'join id:'+result.joinId);
                 fn({
                     ret: 1003,
                     msg: '抱歉，游戏已有其他用户加入~',
@@ -204,7 +205,7 @@ io.sockets.on('connection', function(socket) {
         });
     });
 
-    socket.on('open', function (data, fn) {
+    socket.on('open', function (id, fn) {
         GameModel.findById(id, function(err, result) {
             if (err) {
                 fn({
@@ -229,7 +230,7 @@ io.sockets.on('connection', function(socket) {
                     ret: 0,
                     msg: ''
                 });
-                console.log('open:', 'session id:'+sessionID, 'game id:'+socket.gameId);
+                console.log('open:', 'session id:'+sessionID, 'game id:'+id);
                 socket.broadcast.to(id).emit('open message', {
                     ret: 0,
                     msg: ''
