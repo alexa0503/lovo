@@ -136,7 +136,7 @@ io.sockets.on('connection', function(socket) {
         new Game(gameData).save(function(err, game) {
             if (err) console.log(err);
             else {
-                var url = 'http://localhost:3000/join.html?id=' + game._id;
+                var url = 'http://lovo.himyweb.com/join.html?id=' + game._id;
                 socket.join(game._id);
                 qr.toDataURL(url, {
                     'margin': 0,

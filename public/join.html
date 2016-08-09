@@ -245,7 +245,7 @@
 
     <script>
         var id = queryString('id');
-        var socket = io.connect('http://localhost:3000');
+        var socket = io.connect('http://lovo.himyweb.com');
         socket.on('connect', function() {
             socket.emit('join', id, function(res){
                 console.log(res);
