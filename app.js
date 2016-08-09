@@ -53,7 +53,7 @@ var options = {
     }
 };
 
-//mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise;
 switch (app.get('env')) {
     case 'development':
         mongoose.connect(credentials.mongo.development.connectionString, options);
