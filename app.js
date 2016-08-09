@@ -194,6 +194,7 @@ io.sockets.on('connection', function(socket) {
                 //更新playerId
                 result.playerId = sessionID;
                 result.status = 1;
+                result.playerIpAddress = address;
                 result.save(function(err) {
                     if (err) console.log(err);
                     fn({

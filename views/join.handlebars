@@ -224,7 +224,13 @@
         var id = '{{id}}';
         var socket = io.connect('http://lovo.himyweb.com:3000');
         socket.on('connect', function() {
-
+            socket.emit('join', id, function(res) {
+                console.log(res);
+                if (res.ret != 0) {
+                    isConnect = false;
+                    showError(res.msg);
+                }
+            });
         });
         socket.on('disconnect', function() {
             showError('网络异常，连接断开~');
@@ -244,13 +250,6 @@
         var pageNumb = 2;
         $(document).ready(function() {
             loadImg();
-            socket.emit('join', id, function(res) {
-                console.log(res);
-                if (res.ret != 0) {
-                    isConnect = false;
-                    showError(res.msg);
-                }
-            });
         });
     </script>
 

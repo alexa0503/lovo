@@ -299,7 +299,7 @@
 		socket.on('player leave message', function(data) {
 			if (data.ret == 0) {
 				isConnect = false;
-				showError('游戏参与者离开了游戏~');
+				showError(data.msg);
 			}
 		});
 
@@ -311,6 +311,9 @@
 			socket.emit('open', id, function(data) {
 				if (data.ret == 0) {
 					getAct();
+				}
+				else{
+					showError(data.msg);
 				}
 			});
 		}
