@@ -302,6 +302,7 @@
     <img src="images/loading.gif" width="80" height="80" class="loadingGif" style="display:none;">
 
     <script>
+	var isConnect=true;
         var socket = io.connect('http://lovo.himyweb.com');
         var id = null;
         socket.on('connect', function() {
@@ -314,6 +315,7 @@
                 goPage2();
                 id = data.id;
             } else {
+				isConnect=false;
 				showError();
                 //alert('创建失败~请重试~');
             }

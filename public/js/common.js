@@ -288,7 +288,7 @@ function loadImg() {
 var isGo1 = false;
 
 function goPage1() {
-    if (!isGo1) {
+    if (!isGo1&&isConnect) {
         isGo1 = true;
         //bgm0=createjs.Sound.play("bgm0",{interrupt: createjs.Sound.INTERRUPT_ANY, loop:-1});
         $('body').removeClass('noImg');

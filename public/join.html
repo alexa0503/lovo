@@ -254,6 +254,7 @@
     <img src="images/loading.gif" width="80" height="80" class="loadingGif" style="display:none;">
 
     <script>
+	var isConnect=true;
         var id = queryString('id');
         var socket = io.connect('http://lovo.himyweb.com');
         socket.on('connect', function() {
@@ -261,6 +262,7 @@
                 console.log(res);
                 if(res.ret != 0){
                     //alert(res.msg);
+					isConnect=false;
 					showError();
                 }
             });
