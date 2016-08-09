@@ -479,6 +479,7 @@ function getLottery() {
 }
 
 function showError(){
+	$('body').removeClass('noImg');
 	$('.page').hide();
 	$('.pageError').show();
 	}
