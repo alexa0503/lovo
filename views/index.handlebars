@@ -273,9 +273,7 @@
 		var socket = io.connect('http://lovo.himyweb.com:3000');
 		var id = null;
 		socket.on('connect', function() {
-			if( isConnect == false){
-				hideError();
-			}
+
 		});
 		socket.on('create message', function(data) {
 			console.log(data);
@@ -291,6 +289,10 @@
 		});
 		socket.on('join message', function(data) {
 			if (data.ret == 0) {
+				if( isConnect == false){
+					isConnect = true;
+					hideError();
+				}
 				getMobile2();
 			}
 		});

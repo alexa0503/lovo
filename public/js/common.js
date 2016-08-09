@@ -518,5 +518,4 @@ function hideError() {
     $('body').addClass('noImg');
     $('.page').show();
     $('.pageError').hide();
-
 }

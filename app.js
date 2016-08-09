@@ -173,15 +173,20 @@ io.sockets.on('connection', function(socket) {
                     ret: 1002,
                     msg: '不能加入自己创建游戏~',
                 });
-            } else if (result.joinId == null && Date.now() > result.createdAt.getTime() + 65000) {
+            } else if (result.status == 1) {
                 fn({
                     ret: 1003,
+                    msg: '游戏已结束~',
+                });
+            } else if (result.status == 0 && Date.now() > result.createdAt.getTime() + 65000) {
+                fn({
+                    ret: 1004,
                     msg: '游戏已超时~',
                 });
             } else if (result.joinId != null && result.joinId != sessionID) {
                 console.log('join:', 'session id:'+sessionID, 'join id:'+result.joinId);
                 fn({
-                    ret: 1003,
+                    ret: 1005,
                     msg: '抱歉，游戏已有其他用户加入~',
                 });
             } else {
@@ -226,15 +231,20 @@ io.sockets.on('connection', function(socket) {
                 });
             }
             else{
-                fn({
-                    ret: 0,
-                    msg: ''
+                result.status = 1;
+                result.save(function(err) {
+                    if (err) console.log(err);
+                    fn({
+                        ret: 0,
+                        msg: '',
+                    });
+                    console.log('open:', 'session id:'+sessionID, 'game id:'+id);
+                    socket.broadcast.to(id).emit('open message', {
+                        ret: 0,
+                        msg: ''
+                    });
                 });
-                console.log('open:', 'session id:'+sessionID, 'game id:'+id);
-                socket.broadcast.to(id).emit('open message', {
-                    ret: 0,
-                    msg: ''
-                });
+
             }
         });
     })
