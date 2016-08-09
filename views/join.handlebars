@@ -222,6 +222,8 @@
     <script>
         var isConnect = true;
         var id = '{{id}}';
+        var complete = false;
+        var pageNumb = 2;
         var socket = io.connect('http://lovo.himyweb.com:3000');
         socket.on('connect', function() {
             socket.emit('join', id, function(res) {
@@ -233,21 +235,24 @@
             });
         });
         socket.on('disconnect', function() {
-            showError('网络异常，连接断开~');
+            if( complete == false ){
+                showError('网络异常，连接断开~');
+            }
         });
         socket.on('open message', function(data) {
-            if (data.ret == 0) {
+            if (data.ret == 0 && complete == false) {
+                complete = true;
                 getAct();
             }
         });
         socket.on('creator leave message', function(data) {
-			if (data.ret == 0) {
-				isConnect = false;
-				showError('游戏创建者离开了游戏~');
-			}
-		});
+            if (data.ret == 0 && complete == false) {
+                isConnect = false;
+                showError('游戏创建者离开了游戏~');
+            }
+        });
 
-        var pageNumb = 2;
+
         $(document).ready(function() {
             loadImg();
         });

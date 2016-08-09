@@ -269,9 +269,26 @@
 
 	<script>
 		var isConnect = true;
-		var hasError = false;
+		var complete = false;
 		var socket = io.connect('http://lovo.himyweb.com:3000');
 		var id = null;
+		var pageNumb = 1;
+
+
+		function createGame() {
+			socket.emit('create', '');
+		}
+
+		function open() {
+			socket.emit('open', id, function(data) {
+				if (data.ret == 0 && complete == false) {
+					getAct();
+					complete = true;
+				} else {
+					showError(data.msg);
+				}
+			});
+		}
 		socket.on('connect', function() {
 
 		});
@@ -282,42 +299,35 @@
 				goPage2();
 				id = data.id;
 
-			} else {
+			} else if(complete == false) {
 				isConnect = false;
 				showError('创建失败，请重试~');
 			}
 		});
 		socket.on('join message', function(data) {
-			if (data.ret == 0) {
-				if( isConnect == false){
+			if (data.ret == 0 && complete == false) {
+				if (isConnect == false) {
 					isConnect = true;
 					hideError();
 				}
 				getMobile2();
 			}
+			else if (complete == false){
+				showError(data.msg);
+			}
 		});
 		socket.on('player leave message', function(data) {
-			if (data.ret == 0) {
+			if (data.ret == 0 && complete == false) {
 				isConnect = false;
 				showError(data.msg);
 			}
 		});
+		socket.on('disconnect', function() {
+            if( complete == false ){
+                showError('网络异常，连接断开~');
+            }
+        });
 
-		function createGame() {
-			socket.emit('create', '');
-		}
-
-		function open() {
-			socket.emit('open', id, function(data) {
-				if (data.ret == 0) {
-					getAct();
-				}
-				else{
-					showError(data.msg);
-				}
-			});
-		}
-		var pageNumb = 1;
 		$(document).ready(function() {
 			loadImg();
 			$('#open').click(function(event) {
