@@ -223,34 +223,34 @@
         var isConnect = true;
         var id = '{{id}}';
         var socket = io.connect('http://lovo.himyweb.com:3000');
-        socket.on('connect', function() {
-            socket.emit('join', id, function(res) {
-                console.log(res);
-                if (res.ret != 0) {
-                    //alert(res.msg);
-                    isConnect = false;
-                    showError(res.msg);
-                }
-            });
-        });
-        socket.on('disconnect', function() {
-            showError('网络异常，连接断开~');
-        });
-        socket.on('open message', function(data) {
-            if (data.ret == 0) {
-                getAct();
-            }
-        });
-        socket.on('creator leave message', function(data) {
-			if (data.ret == 0) {
-				isConnect = false;
-				showError('游戏创建者离开了游戏~');
-			}
-		});
+
 
         var pageNumb = 2;
         $(document).ready(function() {
             loadImg();
+            socket.on('connect', function() {
+                socket.emit('join', id, function(res) {
+                    console.log(res);
+                    if (res.ret != 0) {
+                        isConnect = false;
+                        showError(res.msg);
+                    }
+                });
+            });
+            socket.on('disconnect', function() {
+                showError('网络异常，连接断开~');
+            });
+            socket.on('open message', function(data) {
+                if (data.ret == 0) {
+                    getAct();
+                }
+            });
+            socket.on('creator leave message', function(data) {
+    			if (data.ret == 0) {
+    				isConnect = false;
+    				showError('游戏创建者离开了游戏~');
+    			}
+    		});
         });
     </script>
 
