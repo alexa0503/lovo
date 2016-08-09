@@ -98,13 +98,13 @@ function setupManifest2() {
     manifest2.push({
         src: "images/63.png"
     });
-	manifest3.push({
+	manifest2.push({
         src: "images/64.png"
     });
-    manifest3.push({
+    manifest2.push({
         src: "images/65.png"
     });
-    manifest3.push({
+    manifest2.push({
         src: "images/66.png"
     });
     startPreload2();
