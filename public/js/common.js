@@ -516,4 +516,6 @@ function showError(err_msg) {
 }
 function hideError() {
     $('.pageError').hide();
+	$('.page4').show();
+	$('.page5').show();
 }
