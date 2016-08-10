@@ -8,7 +8,7 @@ $('document').ready(function () {
             wxData = $.extend(wxData,json);
             wx.config({
                 debug: wxData.debug || false,
-                appId: wxData.appId || 'wx29b5cd93f26b8f14',
+                appId: wxData.appId,
                 timestamp: wxData.timestamp,
                 nonceStr: wxData.nonceStr,
                 signature: wxData.signature,

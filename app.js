@@ -129,8 +129,14 @@ app.get('/wx/share', function(req, res, next) {
     request.get(requestUrl, function(error, response, body) {
         if( error ) next(error);
         if (!error && response.statusCode == 200) {
-            console.log(body); // Show the HTML for the Google homepage.
-            res.send(body);
+            var data = JSON.parse(body);
+            data.debug = true;
+            data.title = '要不是这个H5,你可能这辈子都不会抢别人手机';
+            data.desc = 'LOVO乐优家 x 可口可乐     全亚洲家纺唯一授权品牌';
+            data.imgUrl = 'http://cola.jim-studio.net/images/share.jpg';
+            data.link = 'http://cola.jim-studio.net';
+            //console.log(body,data); // Show the HTML for the Google homepage.
+            res.send(data);
         }
     })
     //http://m.lovo.cn/activity/weChatInterface.php?pageUrl=http://cola.jim-studio.net/
