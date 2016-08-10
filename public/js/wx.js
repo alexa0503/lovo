@@ -1,14 +1,14 @@
 $('document').ready(function () {
     $.ajax({
         url: wxShareUrl,
-        dataType: 'jsonp',
-        jsonp: 'callback',
+        dataType: 'json',
+        //jsonp: 'callback',
         data: {url: location.href},
         success: function (json) {
             wxData = $.extend(wxData,json);
             wx.config({
                 debug: wxData.debug || false,
-                appId: wxData.appId,
+                appId: wxData.appId || 'wx29b5cd93f26b8f14',
                 timestamp: wxData.timestamp,
                 nonceStr: wxData.nonceStr,
                 signature: wxData.signature,
@@ -20,7 +20,7 @@ $('document').ready(function () {
             });
         },
         error: function () {
-            if( data.debug ){
+            if( wxData.debug ){
                 alert('请求微信分享接口失败~');
             }
             console.log('请求微信分享接口失败~');
