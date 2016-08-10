@@ -273,10 +273,12 @@
 		var socket = io.connect('http://cola.jim-studio.net:3000');
 		var id = null;
 		var pageNumb = 1;
+		var created = false;
 
 
 		function createGame() {
 			socket.emit('create', '');
+			created = true;
 		}
 
 		function open() {
@@ -298,7 +300,6 @@
 				$('.page2qc').attr('src', data.imgData);
 				goPage2();
 				id = data.id;
-
 			} else if(complete == false) {
 				isConnect = false;
 				showError('创建失败，请重试~');
@@ -323,7 +324,7 @@
 			}
 		});
 		socket.on('disconnect', function() {
-            if( complete == false ){
+            if( complete == false && created == true ){
                 showError('网络异常，连接断开~');
             }
         });
