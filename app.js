@@ -130,6 +130,7 @@ app.get('/wx/share', function(req, res, next) {
         if( error ) next(error);
         if (!error && response.statusCode == 200) {
             var data = JSON.parse(body);
+            data.appId = 'wx29b5cd93f26b8f14';
             data.debug = true;
             data.title = '要不是这个H5,你可能这辈子都不会抢别人手机';
             data.desc = 'LOVO乐优家 x 可口可乐     全亚洲家纺唯一授权品牌';
