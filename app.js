@@ -142,7 +142,7 @@ io.sockets.on('connection', function(socket) {
         new GameModel(gameData).save(function(err, game) {
             if (err) console.log(err);
             else {
-                var url = 'http://lovo.himyweb.com/join/' + game._id;
+                var url = 'http://cola.jim-studio.net/join/' + game._id;
                 qr.toDataURL(url, {
                     'margin': 0,
                     'scale': 6

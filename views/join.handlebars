@@ -224,7 +224,7 @@
         var id = '{{id}}';
         var complete = false;
         var pageNumb = 2;
-        var socket = io.connect('http://lovo.himyweb.com:3000');
+        var socket = io.connect('http://cola.jim-studio.net:3000');
         socket.on('connect', function() {
             socket.emit('join', id, function(res) {
                 console.log(res);
