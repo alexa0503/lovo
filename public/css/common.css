@@ -342,6 +342,8 @@ select,input,textarea{font-family:inherit; outline:none;}
 .pageRuleTxt p{ font-size:26px; line-height:42px; color:#555854; padding:0 0 20px 0;}
 .pageRuleTxt span{ font-size:30px; font-weight:bold; line-height:50px;}
 
+.pageRuleBg{ background:#000; opacity:0.6; -webkit-opacity:0.6;}
+
 .pageRes11{ background:url(../images/81.png) 0 0 no-repeat;}
 .pageRes12{ background:url(../images/83.png) 0 0 no-repeat;}
 .pageRes13{ background:url(../images/84.png) 0 0 no-repeat; top:-110px;}
@@ -386,3 +388,4 @@ select,input,textarea{font-family:inherit; outline:none;}
 .pdTxt2{ font-size:28px; line-height:28px; width:130px; height:36px; line-height:36px; text-overflow:ellipsis; white-space:nowrap; overflow:hidden; display:inline-block; color:#b20000; left:19px; top:362px;}
 .pdTxt2 font{ font-size:24px;}
 .pdBtn{ left:153px; top:356px;}
+.closeImg{ left:560px; top:-62px;}

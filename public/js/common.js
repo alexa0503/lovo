@@ -422,6 +422,15 @@ function getAct() {
     }, 3200);
 
     setTimeout(function() {
+        $('.pageRes13').addClass('pageRes13Act').show();
+        $('.pageRes13').touchwipe({
+            min_move_x: 40, //横向灵敏度
+            min_move_y: 40, //纵向灵敏度
+            wipeUp: function() {
+                goProduct();
+            }, //向上滑动事件
+            preventDefaultEvents: true //阻止默认事件
+        });
         $('.bg2').hide();
     }, 3300);
 
@@ -466,10 +475,12 @@ function closeLoading() {
 }
 
 function showRule() {
+    $('.pageRuleBg').show();
     $('.pageRule').show();
 }
 
 function closeRule() {
+    $('.pageRuleBg').hide();
     $('.pageRule').hide();
 }
 
@@ -480,16 +491,7 @@ function getLottery() {
     //成功中奖
     /*closeLoading();
     $('.pageAct').hide();
-    $('.pageRes1').show();
-    $('.pageRes13').addClass('pageRes13Act');
-	$('.pageRes13').touchwipe({
-		min_move_x: 40, //横向灵敏度
-		min_move_y: 40, //纵向灵敏度
- 		wipeUp: function() {
-			goProduct();
-			}, //向上滑动事件
- 		preventDefaultEvents: true //阻止默认事件
-		});*/
+    $('.pageRes1').show();*/
 
     //已经开过红包
     /*closeLoading();
@@ -502,6 +504,7 @@ function getLottery() {
     $('.pageRes3').show();*/
 
     //口令
+    productCloseTo=2;
     closeLoading();
     $('.pageAct').hide();
     $('.pageRes4').show();
@@ -518,4 +521,25 @@ function hideError() {
     $('.pageError').hide();
 	$('.page4').show();
 	$('.page5').show();
+}
+
+var productCloseTo=1;
+function goProduct(){
+    if(productCloseTo==1){
+        $('.pageAct').addClass('upHidden');
+    }
+    else{
+        $('.pageRes4').addClass('upHidden');
+    }
+    $('.pageProduct').addClass('downShow').show();
+}
+
+function closeProduct(){
+    if(productCloseTo==1){
+        $('.pageAct').removeClass('upHidden').show();
+    }
+    else{
+        $('.pageRes4').removeClass('upHidden').show();
+    }
+    $('.pageProduct').removeClass('downShow').hide();
 }
