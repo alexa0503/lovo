@@ -341,13 +341,13 @@ function page1Act() {
     $('.page1Logo').addClass('upShow1').show();
     $('.page11').addClass('upShow2').show();
     $('.page12').addClass('upShow3').show();
-    $('.page13').addClass('upShow4').show();
+    //$('.page13').addClass('upShow4').show();
     $('.page14').addClass('upShow5').show();
     $('.page15').addClass('upShow6').show();
     $('.page16').addClass('upShow7').show();
     setTimeout(function() {
         $('.page15').removeClass('upShow6').addClass('page15Act');
-        $('.page1Btn1,.page1Btn2,.page1Btn3').show();
+        $('.page1Btn2,.page1Btn3').show();
     }, 2000);
 }
 
