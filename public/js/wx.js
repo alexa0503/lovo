@@ -1,9 +1,11 @@
 $('document').ready(function () {
+    var link = location.href;
+    link = link.replace(/\/$/,'');
     $.ajax({
         url: wxShareUrl,
         dataType: 'json',
         //jsonp: 'callback',
-        data: {url: location.href},
+        data: {url: link},
         success: function (json) {
             wxData = $.extend(wxData,json);
             wx.config({
