@@ -130,7 +130,7 @@ app.get('/wx/share', function(req, res, next) {
         if( error ) next(error);
         if (!error && response.statusCode == 200) {
             console.log(body); // Show the HTML for the Google homepage.
-            res.json(body);
+            res.send(body);
         }
     })
     //http://m.lovo.cn/activity/weChatInterface.php?pageUrl=http://cola.jim-studio.net/
