@@ -286,7 +286,7 @@
 	<script>
 		var isConnect = true;
 		var complete = false;
-		var socket = io.connect('http://{{hostname}}:3000');
+		var socket = io.connect('http://{{hostname}}:3000',{ transports : ['websocket']});
 		var id = null;
 		var pageNumb = 1;
 		var created = false;

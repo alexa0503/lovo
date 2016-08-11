@@ -11,6 +11,8 @@ var GameModel = require('./models/game.js');
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io').listen(server);
+var redis = require('socket.io-redis');
+io.adapter(redis({ host: '127.0.0.1', port: 6379 }));
 var request = require('request');
 //QR
 var qr = require('qrcode');
@@ -69,6 +71,7 @@ switch (app.get('env')) {
 ///
 app.use(require('connect-flash')());
 
+//io.adapter(mongoose.connect(credentials.mongo.production.connectionString, options));
 var MongoStore = require('connect-mongo')(require('express-session'));
 
 var sessionStore = new MongoStore({
