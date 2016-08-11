@@ -304,11 +304,6 @@ io.sockets.on('connection', function(socket) {
 
     });
 
-
-    socket.on('send', function(data) {
-        console.log(data, 'sending message');
-        io.sockets.in(data.id).emit('message', data);
-    });
 });
 
 
