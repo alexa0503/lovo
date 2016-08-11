@@ -78,7 +78,7 @@ var sessionStore = new MongoStore({
     mongooseConnection: mongoose.connection
 });
 var session = require('express-session')({
-    //store: sessionStore,
+    store: sessionStore,
     secret: credentials.cookieSecret,
     resave: false,
     saveUninitialized: true,
@@ -116,6 +116,7 @@ if (app.get('env') === 'development') {
 //app.use('/users', users);
 app.locals.hostname = credentials.hostname;
 app.get('/', function(req, res, next) {
+    console.log(app.get('env'));
     res.render('index', {
         title: '可乐大爆炸'
     });
