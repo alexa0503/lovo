@@ -119,6 +119,9 @@ function setupManifest2() {
     manifest2.push({
         src: "/images/66.png"
     });
+	manifest2.push({
+        src: "/images/codeBg.png"
+    });
     startPreload2();
 }
 
@@ -444,6 +447,7 @@ function getAct() {
             }, //向上滑动事件
             preventDefaultEvents: true //阻止默认事件
         });
+		$('.pageRes13').on('click',function(){goProduct();});
         $('.bg2').hide();
     }, 3300);
 
@@ -557,3 +561,12 @@ function closeProduct(){
     }
     $('.pageProduct').removeClass('downShow').hide();
 }
+
+function showCode(code){
+	$('.code2').html(code);
+	$('.pageProductCode').fadeIn(500);
+	}
+	
+function closePageProductCode(){
+	$('.pageProductCode').fadeOut(500);
+	}
