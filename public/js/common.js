@@ -419,7 +419,13 @@ function getMobile2() {
 }
 
 function page5Act() {
-
+    socket.emit('join', id, function(res) {
+        console.log(res);
+        if (res.ret != 0) {
+            isConnect = false;
+            showError(res.msg);
+        }
+    });
 }
 
 function getAct() {
@@ -566,7 +572,7 @@ function showCode(code){
 	$('.code2').html(code);
 	$('.pageProductCode').fadeIn(500);
 	}
-	
+
 function closePageProductCode(){
 	$('.pageProductCode').fadeOut(500);
 	}

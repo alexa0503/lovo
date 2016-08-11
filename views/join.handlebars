@@ -175,7 +175,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="page pageProductCode" style="display:none;">
 			<div class="h832">
 				<div class="innerDiv">
@@ -239,15 +239,9 @@
         var id = '{{id}}';
         var complete = false;
         var pageNumb = 2;
-        var socket = io.connect('http://cola.jim-studio.net:3000');
+        var socket = io.connect('http://{{hostname}}:3000');
         socket.on('connect', function() {
-            socket.emit('join', id, function(res) {
-                console.log(res);
-                if (res.ret != 0) {
-                    isConnect = false;
-                    showError(res.msg);
-                }
-            });
+
         });
         socket.on('disconnect', function() {
             if( complete == false ){
