@@ -344,6 +344,7 @@ function goPage1() {
             setTimeout(function() {
                 page1Act();
             }, 500);
+			_czc.push(["_trackEvent","LOVO_cola","首页"]);
         } else {
             $('.page5').fadeIn(500);
             setTimeout(function() {
@@ -376,6 +377,7 @@ function goPage2() {
         $('.page2').fadeIn(500);
         setTimeout(function() {
             page2Act();
+			_czc.push(["_trackEvent","LOVO_cola","等待好友加入"]);
         }, 500);
     }
 }
@@ -416,6 +418,7 @@ function getMobile2() {
     clearInterval(countdownInterval);
     $('.page2').hide();
     $('.page4').show();
+	_czc.push(["_trackEvent","LOVO_cola","好友加入成功"]);
 }
 
 function page5Act() {
@@ -455,6 +458,7 @@ function getAct() {
         });
 		$('.pageRes13').on('click',function(){goProduct();});
         $('.bg2').hide();
+		_czc.push(["_trackEvent","LOVO_cola","恭喜您获得红包"]);
     }, 3300);
 
     $('.aImg1').addClass('aImg1Act');
@@ -532,7 +536,7 @@ function getLottery() {
     closeLoading();
     $('.pageAct').hide();
     $('.pageRes4').show();
-
+	_czc.push(["_trackEvent","LOVO_cola","恭喜您获得奖品"]);
 }
 
 function showError(err_msg) {
@@ -556,6 +560,7 @@ function goProduct(){
         $('.pageRes4').addClass('upHidden');
     }
     $('.pageProduct').addClass('downShow').show();
+	_czc.push(["_trackEvent","LOVO_cola","下拉有惊喜"]);
 }
 
 function closeProduct(){
@@ -568,9 +573,10 @@ function closeProduct(){
     $('.pageProduct').removeClass('downShow').hide();
 }
 
-function showCode(code){
+function showCode(code,trackNumb){
 	$('.code2').html(code);
 	$('.pageProductCode').fadeIn(500);
+	_czc.push(["_trackEvent","LOVO_cola","产品"+trackNumb]);
 	}
 
 function closePageProductCode(){
