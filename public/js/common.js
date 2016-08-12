@@ -40,16 +40,14 @@ $(document).ready(function() {
 
 var manifest, manifest2, manifest3, manifest4;
 var preload, preload2, preload3, preload4;
+var bgm,bgm1,bgm2;
 //定义相关JSON格式文件列表
 function setupManifest() {
-    /*createjs.Sound.alternateExtensions = ["mp3"];
-    createjs.Sound.registerSound({src: "/images/bgm0.mp3",id: "bgm0"});
+    createjs.Sound.alternateExtensions = ["mp3"];
+    createjs.Sound.on("fileload", this.loadHandler, this);
+    createjs.Sound.registerSound({src: "/images/bgm.mp3",id: "bgm"});
 	createjs.Sound.registerSound({src: "/images/bgm1.mp3",id: "bgm1"});
 	createjs.Sound.registerSound({src: "/images/bgm2.mp3",id: "bgm2"});
-	createjs.Sound.registerSound({src: "/images/bgm3.mp3",id: "bgm3"});
-	createjs.Sound.registerSound({src: "/images/bgm4.mp3",id: "bgm4"});
-	createjs.Sound.registerSound({src: "/images/bgm5.mp3",id: "bgm5"});
-	createjs.Sound.registerSound({src: "/images/bgm6.mp3",id: "bgm6"});*/
 
     manifest = [];
     manifest.push({
@@ -336,7 +334,6 @@ var isGo1 = false;
 function goPage1() {
     if (!isGo1 && isConnect) {
         isGo1 = true;
-        //bgm0=createjs.Sound.play("bgm0",{interrupt: createjs.Sound.INTERRUPT_ANY, loop:-1});
         $('body').removeClass('noImg');
         $('.page0').fadeOut(500);
         if (pageNumb == 1) {
@@ -352,6 +349,11 @@ function goPage1() {
             }, 500);
         }
     }
+}
+
+function loadHandler(event) {
+    // 这会引发针对每个已注册的声音。
+    bgm=createjs.Sound.play("bgm",{interrupt: createjs.Sound.INTERRUPT_ANY, loop:-1});
 }
 
 function page1Act() {
@@ -446,6 +448,17 @@ function getAct() {
         $('.pageActImg3').addClass('upShowA3').show();
         $('.pageActBtn1,.pageActBtn2').delay(500).fadeIn(500);
     }, 3200);
+
+    setTimeout(function(){
+        bgm.stop();
+        bgm1=createjs.Sound.play("bgm1");
+        setTimeout(function(){
+            bgm2=createjs.Sound.play("bgm2");
+            setTimeout(function(){
+                bgm=createjs.Sound.play("bgm",{interrupt: createjs.Sound.INTERRUPT_ANY, loop:-1});
+            },3500);
+        },500);
+    },850);
 
     setTimeout(function() {
         $('.pageRes13').addClass('pageRes13Act').show();
