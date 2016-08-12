@@ -261,33 +261,33 @@ var loadImgHeight4 = 0;
 function handleFileProgress(event) {
     loadImgHeight1 = preload.progress * 64;
     $(".loadImg2").height(loadImgHeight1 + loadImgHeight2 + loadImgHeight3 + loadImgHeight4);
-    /*setTimeout(function(){
-    	$('.loadingTxt span').html(Math.round((preload.progress+preload2.progress+preload3.progress+preload4.progress)*25));
-    	},100);*/
+    setTimeout(function(){
+    	$('.loadImg5 span').html(Math.round((preload.progress+preload2.progress+preload3.progress+preload4.progress)*25));
+    	},100);
 }
 
 function handleFileProgress2(event) {
     loadImgHeight2 = preload2.progress * 64;
     $(".loadImg2").height(loadImgHeight1 + loadImgHeight2 + loadImgHeight3 + loadImgHeight4);
-    /*setTimeout(function(){
-    	$('.loadingTxt span').html(Math.round((preload.progress+preload2.progress+preload3.progress+preload4.progress)*25));
-    	},100);*/
+    setTimeout(function(){
+    	$('.loadImg5 span').html(Math.round((preload.progress+preload2.progress+preload3.progress+preload4.progress)*25));
+    	},100);
 }
 
 function handleFileProgress3(event) {
     loadImgHeight3 = preload3.progress * 64;
     $(".loadImg2").height(loadImgHeight1 + loadImgHeight2 + loadImgHeight3 + loadImgHeight4);
-    /*setTimeout(function(){
-    	$('.loadingTxt span').html(Math.round((preload.progress+preload2.progress+preload3.progress+preload4.progress)*25));
-    	},100);*/
+    setTimeout(function(){
+    	$('.loadImg5 span').html(Math.round((preload.progress+preload2.progress+preload3.progress+preload4.progress)*25));
+    	},100);
 }
 
 function handleFileProgress4(event) {
     loadImgHeight4 = preload4.progress * 64;
     $(".loadImg2").height(loadImgHeight1 + loadImgHeight2 + loadImgHeight3 + loadImgHeight4);
-    /*setTimeout(function(){
-    	$('.loadingTxt span').html(Math.round((preload.progress+preload2.progress+preload3.progress+preload4.progress)*25));
-    	},100);*/
+    setTimeout(function(){
+    	$('.loadImg5 span').html(Math.round((preload.progress+preload2.progress+preload3.progress+preload4.progress)*25));
+    	},100);
 }
 
 //全度资源加载完毕
@@ -363,6 +363,7 @@ function page1Act() {
     $('.page15').addClass('upShow6').show();
     $('.page16').addClass('upShow7').show();
     setTimeout(function() {
+		$('.page14').removeClass('upShow5').addClass('page15Act');
         $('.page15').removeClass('upShow6').addClass('page15Act');
         $('.page1Btn2,.page1Btn3').show();
     }, 2000);

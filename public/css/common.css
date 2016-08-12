@@ -32,10 +32,11 @@ select,input,textarea{font-family:inherit; outline:none;}
 .noImg img{ display:none;}
 .bgImg{ width:640px; height:1039px; display:block; position:absolute; left:0; top:-103.5px;}
 
-.loadImg1{ background:url(../images/l0.png) 0 0 no-repeat; width:83px; height:256px; position:absolute; left:50%; top:50%; margin:-138px 0 0 -41px;}
+.loadImg1{ background:url(../images/l0.png) 0 0 no-repeat; width:83px; height:256px; position:absolute; left:50%; top:50%; margin:-138px 0 0 -41px; -webkit-transform:scale(0.5);}
 .loadImg2{ background:url(../images/l1.png) center bottom no-repeat; width:83px; height:256px; position:absolute; left:0; bottom:0;}
-.loadImg3{ background:url(../images/l2.png) 0 0 no-repeat; width:83px; height:256px; position:absolute; left:50%; top:50%; margin:-138px 0 0 -41px;}
-.loadImg4{ background:url(../images/l3.png) 0 0 no-repeat; width:172px; height:32px; position:absolute; left:50%; top:50%; margin:140px 0 0 -86px;}
+.loadImg3{ background:url(../images/l2.png) 0 0 no-repeat; width:83px; height:256px; position:absolute; left:50%; top:50%; margin:-138px 0 0 -41px; -webkit-transform:scale(0.5);}
+.loadImg4{ background:url(../images/l3.png) 0 0 no-repeat; width:126px; height:23px; position:absolute; left:50%; top:50%; margin:90px 0 0 -95px;}
+.loadImg5{ width:126px; height:23px; font-size:30px; line-height:22px; color:#b70404; font-weight:bold; position:absolute; left:50%; top:50%; margin:90px 0 0 45px;}
 
 .pageLogo{ background:url(../images/10.png) 0 0 no-repeat;}
 
@@ -76,7 +77,12 @@ select,input,textarea{font-family:inherit; outline:none;}
 
 /*page2*/
 .page21{ background:url(../images/21.png) 0 0 no-repeat;}
-.page23{ background:url(../images/23.png) 0 0 no-repeat;}
+.page23{}
+.page23Inner{ width:640px; height:1039px; background:url(../images/23.png) 0 0 no-repeat;-webkit-animation:page23Inner 3s steps(3) infinite;}
+@-webkit-keyframes page23Inner{
+0%{ background-position:0 0;}
+100%{ background-position:-1920px 0;}
+}
 .page24{ background:url(../images/24.png) 0 0 no-repeat;}
 .page25{ background:url(../images/25.png) 0 0 no-repeat;}
 .page2qc{ width:266px; height:266px; left:189px; top:108px;}
