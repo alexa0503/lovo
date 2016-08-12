@@ -457,7 +457,7 @@ function getAct() {
             }, //向上滑动事件
             preventDefaultEvents: true //阻止默认事件
         });
-		$('.pageRes13').on('click',function(){goProduct();});
+		//$('.pageRes13').on('click',function(){goProduct();});
         $('.bg2').hide();
 		_czc.push(["_trackEvent","LOVO_cola","恭喜您获得红包"]);
     }, 3300);
