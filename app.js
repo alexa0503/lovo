@@ -116,14 +116,14 @@ if (app.get('env') === 'development') {
 //app.use('/users', users);
 app.locals.hostname = credentials.hostname;
 app.get('/', function(req, res, next) {
-    console.log(app.get('env'));
+    //console.log(app.get('env'));
     res.render('index', {
-        title: '可乐大爆炸'
+        title: credentials.pageTitle,
     });
 });
 app.get('/join/:id', function(req, res, next) {
     res.render('join', {
-            title: '可乐大爆炸',
+            title: credentials.pageTitle,
             id: req.params.id
         })
         //res.redirect('index.html');
