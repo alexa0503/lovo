@@ -1,6 +1,6 @@
 $('document').ready(function () {
     var link = location.href;
-    link = link.replace(/\/$/,'');
+    //link = link.replace(/\/$/,'');
     $.ajax({
         url: wxShareUrl,
         dataType: 'json',
@@ -43,7 +43,7 @@ function wxShare(data){
             fail: function (res) {}
         });
         wx.onMenuShareTimeline({
-            title: wxData.desc,
+            title: wxData.title,
             link: wxData.link,
             imgUrl: wxData.imgUrl,
             trigger: function (res) {},
