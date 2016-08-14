@@ -364,7 +364,7 @@
 		socket.on('player leave message', function(data) {
 			if (data.ret == 0 && complete == false) {
 				isConnect = false;
-				showError(data.msg);
+				showError('游戏参与者离开了游戏~');
 			}
 		});
 		socket.on('disconnect', function() {
