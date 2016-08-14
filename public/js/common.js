@@ -589,10 +589,12 @@ function closeProduct(){
 
 function showCode(code,trackNumb){
 	$('.code2').html(code);
+    $('.pageRuleBg').show();
 	$('.pageProductCode').fadeIn(500);
 	_czc.push(["_trackEvent","LOVO_cola","产品"+trackNumb]);
 	}
 
 function closePageProductCode(){
+    $('.pageRuleBg').hide();
 	$('.pageProductCode').fadeOut(500);
 	}
