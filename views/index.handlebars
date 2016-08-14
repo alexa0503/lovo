@@ -46,7 +46,8 @@
 					<div class="page24 bgImg"></div>
 					<div class="page25 bgImg"></div>
 					<p class="abs countdown">60</p>
-					<img src="/images/qc.jpg" class="abs page2qc">
+					<p class="abs qcloading" style="left:189px; top:108px;text-align:center;width:266px; height:266px;line-height:266px;">游戏加载中，请稍后</p>
+					<img src="/images/qc.jpg" class="abs page2qc"  style="display:none;">
 				</div>
 			</div>
 		</div>
@@ -312,6 +313,9 @@
 
 
 		function createGame() {
+			isGo2 = true;
+	        $('.page1').fadeOut(500);
+	        $('.page2').fadeIn(500);
 			socket.emit('create', '');
 			created = true;
 			_czc.push(["_trackEvent","LOVO_cola","开一瓶"]);
@@ -331,10 +335,14 @@
 
 		});
 		socket.on('create message', function(data) {
-			console.log(data);
+			//console.log(data);
 			if (typeof(data) != undefined && data.imgData) {
 				$('.page2qc').attr('src', data.imgData);
-				goPage2();
+				//goPage2();
+				$('.qcloading').hide();
+				$('.page2qc').show();
+				page2Act();
+				_czc.push(["_trackEvent","LOVO_cola","等待好友加入"]);
 				id = data.id;
 			} else if(complete == false) {
 				isConnect = false;

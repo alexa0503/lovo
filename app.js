@@ -12,7 +12,10 @@ var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io').listen(server);
 var redis = require('socket.io-redis');
-io.adapter(redis({ host: '127.0.0.1', port: 6379 }));
+io.adapter(redis({
+    host: '127.0.0.1',
+    port: 6379
+}));
 var request = require('request');
 //QR
 var qr = require('qrcode');
@@ -112,6 +115,11 @@ if (app.get('env') === 'development') {
         });
     });
 }
+
+function sleep(milliSeconds) {
+    var startTime = new Date().getTime();
+    while (new Date().getTime() < startTime + milliSeconds);
+};
 //app.use('/', routes);
 //app.use('/users', users);
 app.locals.hostname = credentials.hostname;
@@ -132,20 +140,20 @@ app.get('/wx/share', function(req, res, next) {
     var url = req.query.url;
     var requestUrl = 'http://m.lovo.cn/activity/weChatInterface.php?pageUrl=' + encodeURIComponent(url);
     request.get(requestUrl, function(error, response, body) {
-        if( error ) next(error);
-        if (!error && response.statusCode == 200) {
-            var data = JSON.parse(body);
-            data.appId = 'wx29b5cd93f26b8f14';
-            data.debug = false;
-            data.title = '要不是这个H5,你可能这辈子都不会抢别人手机';
-            data.desc = 'LOVO乐优家 x 可口可乐     全亚洲家纺唯一授权品牌';
-            data.imgUrl = 'http://cola.jim-studio.net/images/share.jpg';
-            data.link = 'http://cola.jim-studio.net';
-            //console.log(requestUrl); // Show the HTML for the Google homepage.
-            res.send(data);
-        }
-    })
-    //http://m.lovo.cn/activity/weChatInterface.php?pageUrl=http://cola.jim-studio.net/
+            if (error) next(error);
+            if (!error && response.statusCode == 200) {
+                var data = JSON.parse(body);
+                data.appId = 'wx29b5cd93f26b8f14';
+                data.debug = false;
+                data.title = '要不是这个H5,你可能这辈子都不会抢别人手机';
+                data.desc = 'LOVO乐优家 x 可口可乐     全亚洲家纺唯一授权品牌';
+                data.imgUrl = 'http://cola.jim-studio.net/images/share.jpg';
+                data.link = 'http://cola.jim-studio.net';
+                //console.log(requestUrl); // Show the HTML for the Google homepage.
+                res.send(data);
+            }
+        })
+        //http://m.lovo.cn/activity/weChatInterface.php?pageUrl=http://cola.jim-studio.net/
 });
 
 //
@@ -173,7 +181,8 @@ io.sockets.on('connection', function(socket) {
         new GameModel(gameData).save(function(err, game) {
             if (err) console.log(err);
             else {
-                var url = 'http://'+app.locals.hostname+'/join/' + game._id;
+                //sleep(5000);
+                var url = 'http://' + app.locals.hostname + '/join/' + game._id;
                 qr.toDataURL(url, {
                     'margin': 0,
                     'scale': 6
