@@ -38,7 +38,9 @@ function wxShare(data){
             link: wxData.link,
             imgUrl: wxData.imgUrl,
             trigger: function (res) {},
-            success: function (res) {},
+            success: function (res) {
+                _czc.push([")trackEvent","cola","分享完成"]);
+            },
             cancel: function (res) {},
             fail: function (res) {}
         });
@@ -48,6 +50,7 @@ function wxShare(data){
             imgUrl: wxData.imgUrl,
             trigger: function (res) {},
             success: function (res) {
+                _czc.push([")trackEvent","cola","分享完成"]);
             },
             cancel: function (res) {},
             fail: function (res) {}
@@ -57,7 +60,9 @@ function wxShare(data){
             desc: wxData.desc,
             link: wxData.link,
             imgUrl: wxData.imgUrl,
-            success: function () {},
+            success: function () {
+                _czc.push([")trackEvent","cola","分享完成"]);
+            },
             cancel: function () {}
         });
     });
