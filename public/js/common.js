@@ -341,7 +341,7 @@ function goPage1() {
             setTimeout(function() {
                 page1Act();
             }, 500);
-			_czc.push(["_trackEvent","LOVO_cola","首页"]);
+			_czc.push(["_trackEvent","LOVO_jd","首页"]);
         } else {
             $('.page5').fadeIn(500);
             setTimeout(function() {
@@ -380,7 +380,7 @@ function goPage2() {
         $('.page2').fadeIn(500);
         setTimeout(function() {
             page2Act();
-			_czc.push(["_trackEvent","LOVO_cola","等待好友加入"]);
+			_czc.push(["_trackEvent","LOVO_jd","等待好友加入"]);
         }, 500);
     }
 }
@@ -421,7 +421,7 @@ function getMobile2() {
     clearInterval(countdownInterval);
     $('.page2').hide();
     $('.page4').show();
-	_czc.push(["_trackEvent","LOVO_cola","好友加入成功"]);
+	_czc.push(["_trackEvent","LOVO_jd","好友加入成功"]);
 }
 
 function page5Act() {
@@ -472,7 +472,79 @@ function getAct() {
         });
 		//$('.pageRes13').on('click',function(){goProduct();});
         $('.bg2').hide();
-		_czc.push(["_trackEvent","LOVO_cola","恭喜您获得红包"]);
+		_czc.push(["_trackEvent","LOVO_jd","恭喜您获得红包"]);
+    }, 3300);
+
+    $('.aImg1').addClass('aImg1Act');
+    $('.ai1').addClass('ai1Act');
+    $('.ai2').addClass('ai2Act');
+    $('.ai3').addClass('ai3Act');
+    $('.ai4').addClass('ai4Act');
+    $('.ai5').addClass('ai5Act');
+    $('.ai6').addClass('ai6Act');
+    $('.ai7').addClass('ai7Act');
+    $('.ai8').addClass('ai8Act');
+
+    $('.actImg51').addClass('actImg51Act');
+    $('.actImg52').addClass('actImg52Act');
+    $('.actImg53').addClass('actImg53Act');
+    $('.actImg54').addClass('actImg54Act');
+    $('.actImg55').addClass('actImg55Act');
+    $('.actImg56').addClass('actImg56Act');
+    $('.actImg57').addClass('actImg57Act');
+
+    $('.actStep1').addClass('actStep1Hide');
+
+    if (pageNumb == 1) {
+        $('.a1Bottle').addClass('a1BottleAct');
+        $('.a1Cap').addClass('a1CapAct');
+        $('.actImg4').addClass('actImg4Act');
+        $('.actImg6').addClass('actImg6Act');
+        $('.actImg7').addClass('actImg7Act');
+    } else if (pageNumb == 2) {
+
+    }
+}
+
+function getActFail() {
+    $('.page').hide();
+    $('.pageAct').show();
+
+    setTimeout(function() {
+        $('.bg2').show();
+    }, 900);
+
+    setTimeout(function() {
+        $('.pageActImg1').addClass('upShowA1').show();
+        $('.pageActImg2').addClass('upShowA2').show();
+        $('.pageActImg3').addClass('upShowA3').show();
+        $('.pageActBtn1,.pageActBtn2').delay(500).fadeIn(500);
+    }, 3200);
+
+    setTimeout(function(){
+        bgm.stop();
+        bgm1=createjs.Sound.play("bgm1");
+        setTimeout(function(){
+            bgm2=createjs.Sound.play("bgm2");
+            setTimeout(function(){
+                bgm=createjs.Sound.play("bgm",{interrupt: createjs.Sound.INTERRUPT_ANY, loop:-1});
+            },3500);
+        },500);
+    },850);
+
+    setTimeout(function() {
+        $('.pageRes13').addClass('pageRes13Act').show();
+        $('.pageRes13').touchwipe({
+            min_move_x: 40, //横向灵敏度
+            min_move_y: 40, //纵向灵敏度
+            wipeUp: function() {
+                goProduct();
+            }, //向上滑动事件
+            preventDefaultEvents: true //阻止默认事件
+        });
+        //$('.pageRes13').on('click',function(){goProduct();});
+        $('.bg2').hide();
+        _czc.push(["_trackEvent","LOVO_jd","恭喜您获得红包"]);
     }, 3300);
 
     $('.aImg1').addClass('aImg1Act');
@@ -550,7 +622,7 @@ function getLottery() {
     closeLoading();
     $('.pageAct').hide();
     $('.pageRes4').show();
-	_czc.push(["_trackEvent","LOVO_cola","恭喜您获得奖品"]);
+	_czc.push(["_trackEvent","LOVO_jd","恭喜您获得奖品"]);
 }
 
 function showError(err_msg) {
@@ -574,7 +646,7 @@ function goProduct(){
         $('.pageRes4').addClass('upHidden');
     }
     $('.pageProduct').addClass('downShow').show();
-	_czc.push(["_trackEvent","LOVO_cola","下拉有惊喜"]);
+	_czc.push(["_trackEvent","LOVO_jd","下拉有惊喜"]);
 }
 
 function closeProduct(){
@@ -591,7 +663,7 @@ function showCode(code,trackNumb){
 	$('.code2').html(code);
     $('.pageRuleBg').show();
 	$('.pageProductCode').fadeIn(500);
-	_czc.push(["_trackEvent","LOVO_cola","产品"+trackNumb]);
+	_czc.push(["_trackEvent","LOVO_jd","产品"+trackNumb]);
 	}
 
 function closePageProductCode(){
