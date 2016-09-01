@@ -106,7 +106,9 @@
 					<div class="pageActImg2 bgImg" style="display:none;"></div>
 					<div class="pageActImg3 bgImg" style="display:none;"></div>
                     <div class="pageRes13 bgImg" style="display:none;"></div>
-					<a href="javascript:void(0);" class="abs pageActBtn1" onClick="getLottery();"><img src="/images/space.gif" width="410" height="510"></a>
+                    <div class="actImgFail bgImg" style="display: none;"></div>
+                    <a href="javascript:void(0);" class="abs actImgFailBtn" style="display: none;"><img src="/images/actImgFailBtn.png"></a>
+					<a href="http://sale.jd.com/wq/act/QEDlLRiZ108f.html?plg_nld=1&plg_uin=1&plg_auth=1&plg_nld=1&plg_usr=1&plg_vkey=1&plg_dev=1" class="abs pageActBtn1" style="display: none;"><img src="/images/space.gif" width="410" height="510"></a>
 					<a href="javascript:void(0);" class="abs pageActBtn2" onClick="showRule();_czc.push(['_trackEvent','LOVO_cola','红包使用规则']);" style="display:none;"><img src="/images/112.png"></a>
 				</div>
 			</div>
@@ -343,6 +345,7 @@
 				page2Act();
 				_czc.push(["_trackEvent","LOVO_cola","等待好友加入"]);
 				id = data.id;
+                console.log(id);
 			} else if(complete == false) {
 				isConnect = false;
 				showError('创建失败，请重试~');

@@ -79,6 +79,10 @@ function setupManifest() {
         src: "/images/bg2.png"
     });
 
+    manifest.push({
+        src: "/images/actImgFail.png"
+    });
+
     startPreload();
 }
 
@@ -438,6 +442,9 @@ function getAct() {
     $('.page').hide();
     $('.pageAct').show();
 
+    $('.actImgFail').hide();
+    $('.actImgFailBtn').hide();
+
     setTimeout(function() {
         $('.bg2').show();
     }, 900);
@@ -446,7 +453,7 @@ function getAct() {
         $('.pageActImg1').addClass('upShowA1').show();
         $('.pageActImg2').addClass('upShowA2').show();
         $('.pageActImg3').addClass('upShowA3').show();
-        $('.pageActBtn1,.pageActBtn2').delay(500).fadeIn(500);
+        $('.pageActBtn1').delay(500).fadeIn(500);
     }, 3200);
 
     setTimeout(function(){
@@ -461,46 +468,46 @@ function getAct() {
     },850);
 
     setTimeout(function() {
-        $('.pageRes13').addClass('pageRes13Act').show();
-        $('.pageRes13').touchwipe({
-            min_move_x: 40, //横向灵敏度
-            min_move_y: 40, //纵向灵敏度
-            wipeUp: function() {
-                goProduct();
-            }, //向上滑动事件
-            preventDefaultEvents: true //阻止默认事件
-        });
+        // $('.pageRes13').addClass('pageRes13Act').show();
+        // $('.pageRes13').touchwipe({
+        //     min_move_x: 40, //横向灵敏度
+        //     min_move_y: 40, //纵向灵敏度
+        //     wipeUp: function() {
+        //         goProduct();
+        //     }, //向上滑动事件
+        //     preventDefaultEvents: true //阻止默认事件
+        // });
 		//$('.pageRes13').on('click',function(){goProduct();});
         $('.bg2').hide();
 		_czc.push(["_trackEvent","LOVO_jd","恭喜您获得红包"]);
     }, 3300);
 
     $('.aImg1').addClass('aImg1Act');
-    $('.ai1').addClass('ai1Act');
-    $('.ai2').addClass('ai2Act');
-    $('.ai3').addClass('ai3Act');
-    $('.ai4').addClass('ai4Act');
-    $('.ai5').addClass('ai5Act');
-    $('.ai6').addClass('ai6Act');
-    $('.ai7').addClass('ai7Act');
-    $('.ai8').addClass('ai8Act');
+    $('.ai1').addClass('ai1Act').show();
+    $('.ai2').addClass('ai2Act').show();
+    $('.ai3').addClass('ai3Act').show();
+    $('.ai4').addClass('ai4Act').show();
+    $('.ai5').addClass('ai5Act').show();
+    $('.ai6').addClass('ai6Act').show();
+    $('.ai7').addClass('ai7Act').show();
+    $('.ai8').addClass('ai8Act').show();
 
-    $('.actImg51').addClass('actImg51Act');
-    $('.actImg52').addClass('actImg52Act');
-    $('.actImg53').addClass('actImg53Act');
-    $('.actImg54').addClass('actImg54Act');
-    $('.actImg55').addClass('actImg55Act');
-    $('.actImg56').addClass('actImg56Act');
-    $('.actImg57').addClass('actImg57Act');
+    $('.actImg51').addClass('actImg51Act').show();
+    $('.actImg52').addClass('actImg52Act').show();
+    $('.actImg53').addClass('actImg53Act').show();
+    $('.actImg54').addClass('actImg54Act').show();
+    $('.actImg55').addClass('actImg55Act').show();
+    $('.actImg56').addClass('actImg56Act').show();
+    $('.actImg57').addClass('actImg57Act').show();
 
     $('.actStep1').addClass('actStep1Hide');
 
     if (pageNumb == 1) {
         $('.a1Bottle').addClass('a1BottleAct');
         $('.a1Cap').addClass('a1CapAct');
-        $('.actImg4').addClass('actImg4Act');
-        $('.actImg6').addClass('actImg6Act');
-        $('.actImg7').addClass('actImg7Act');
+        $('.actImg4').addClass('actImg4Act').show();
+        $('.actImg6').addClass('actImg6Act').show();
+        $('.actImg7').addClass('actImg7Act').show();
     } else if (pageNumb == 2) {
 
     }
@@ -514,18 +521,23 @@ function getActFail() {
         $('.bg2').show();
     }, 900);
 
-    setTimeout(function() {
-        $('.pageActImg1').addClass('upShowA1').show();
-        $('.pageActImg2').addClass('upShowA2').show();
-        $('.pageActImg3').addClass('upShowA3').show();
-        $('.pageActBtn1,.pageActBtn2').delay(500).fadeIn(500);
-    }, 3200);
+    // setTimeout(function() {
+    //     $('.pageActImg1').addClass('upShowA1').show();
+    //     $('.pageActImg2').addClass('upShowA2').show();
+    //     $('.pageActImg3').addClass('upShowA3').show();
+    //     $('.pageActBtn1,.pageActBtn2').delay(500).fadeIn(500);
+    // }, 3200);
+    setTimeout(function(){
+        $('.aImg1').removeClass('aImg1Act');
+        $('.actImgFail').addClass('upShowA1').show();
+        $('.actImgFailBtn').addClass('upShowA2').show();
+    },3000);
 
     setTimeout(function(){
         bgm.stop();
         bgm1=createjs.Sound.play("bgm1");
         setTimeout(function(){
-            bgm2=createjs.Sound.play("bgm2");
+            //bgm2=createjs.Sound.play("bgm2");
             setTimeout(function(){
                 bgm=createjs.Sound.play("bgm",{interrupt: createjs.Sound.INTERRUPT_ANY, loop:-1});
             },3500);
@@ -533,46 +545,50 @@ function getActFail() {
     },850);
 
     setTimeout(function() {
-        $('.pageRes13').addClass('pageRes13Act').show();
-        $('.pageRes13').touchwipe({
-            min_move_x: 40, //横向灵敏度
-            min_move_y: 40, //纵向灵敏度
-            wipeUp: function() {
-                goProduct();
-            }, //向上滑动事件
-            preventDefaultEvents: true //阻止默认事件
-        });
+        //$('.pageRes13').addClass('pageRes13Act').show();
+        // $('.pageRes13').touchwipe({
+        //     min_move_x: 40, //横向灵敏度
+        //     min_move_y: 40, //纵向灵敏度
+        //     wipeUp: function() {
+        //         goProduct();
+        //     }, //向上滑动事件
+        //     preventDefaultEvents: true //阻止默认事件
+        // });
         //$('.pageRes13').on('click',function(){goProduct();});
         $('.bg2').hide();
         _czc.push(["_trackEvent","LOVO_jd","恭喜您获得红包"]);
     }, 3300);
 
     $('.aImg1').addClass('aImg1Act');
-    $('.ai1').addClass('ai1Act');
-    $('.ai2').addClass('ai2Act');
-    $('.ai3').addClass('ai3Act');
-    $('.ai4').addClass('ai4Act');
-    $('.ai5').addClass('ai5Act');
-    $('.ai6').addClass('ai6Act');
-    $('.ai7').addClass('ai7Act');
-    $('.ai8').addClass('ai8Act');
+    $('.ai1,.ai2,.ai3,.ai4,.ai5,.ai6,.ai7,.ai8').hide();
+    // $('.ai1').addClass('ai1Act');
+    // $('.ai2').addClass('ai2Act');
+    // $('.ai3').addClass('ai3Act');
+    // $('.ai4').addClass('ai4Act');
+    // $('.ai5').addClass('ai5Act');
+    // $('.ai6').addClass('ai6Act');
+    // $('.ai7').addClass('ai7Act');
+    // $('.ai8').addClass('ai8Act');
 
-    $('.actImg51').addClass('actImg51Act');
-    $('.actImg52').addClass('actImg52Act');
-    $('.actImg53').addClass('actImg53Act');
-    $('.actImg54').addClass('actImg54Act');
-    $('.actImg55').addClass('actImg55Act');
-    $('.actImg56').addClass('actImg56Act');
-    $('.actImg57').addClass('actImg57Act');
 
-    $('.actStep1').addClass('actStep1Hide');
+    $('.actImg51,.actImg52,.actImg53,.actImg54,.actImg55,.actImg56,.actImg57').hide();
+    // $('.actImg51').addClass('actImg51Act');
+    // $('.actImg52').addClass('actImg52Act');
+    // $('.actImg53').addClass('actImg53Act');
+    // $('.actImg54').addClass('actImg54Act');
+    // $('.actImg55').addClass('actImg55Act');
+    // $('.actImg56').addClass('actImg56Act');
+    // $('.actImg57').addClass('actImg57Act');
+
+    //$('.actStep1').addClass('actStep1Hide');
 
     if (pageNumb == 1) {
-        $('.a1Bottle').addClass('a1BottleAct');
-        $('.a1Cap').addClass('a1CapAct');
-        $('.actImg4').addClass('actImg4Act');
-        $('.actImg6').addClass('actImg6Act');
-        $('.actImg7').addClass('actImg7Act');
+        $('.actImg4,.actImg6,.actImg7').hide();
+        // $('.a1Bottle').addClass('a1BottleAct');
+        // $('.a1Cap').addClass('a1CapAct');
+        // $('.actImg4').addClass('actImg4Act');
+        // $('.actImg6').addClass('actImg6Act');
+        // $('.actImg7').addClass('actImg7Act');
     } else if (pageNumb == 2) {
 
     }
