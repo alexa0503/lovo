@@ -252,8 +252,9 @@ io.sockets.on('connection', function(socket) {
             }
         });
     });
-
-    socket.on('open', function(id, fn) {
+    //
+    socket.on('open', function(data, fn) {
+        var id = data.id;
         GameModel.findById(id, function(err, result) {
             if (err) {
                 fn({
@@ -271,20 +272,35 @@ io.sockets.on('connection', function(socket) {
                     msg: '您不是游戏的创建者或参与者'
                 });
             } else {
-                result.status = 2;
-                result.save(function(err) {
-                    if (err) console.log(err);
+                var n = Math.random();
+                console.log(n);
+                //var n = 1;
+                if ( n < 0.5 || data.playAgain == 1){
+                    result.status = 2;
+                    result.save(function(err) {
+                        if (err) console.log(err);
+                        fn({
+                            ret: 0,
+                            msg: '',
+                        });
+                        console.log('open:', 'session id:' + sessionID, 'game id:' + id);
+                        socket.broadcast.to(id).emit('open message', {
+                            ret: 0,
+                            msg: ''
+                        });
+                    });
+                }
+                else{
                     fn({
-                        ret: 0,
+                        ret: 1000,
                         msg: '',
                     });
-                    console.log('open:', 'session id:' + sessionID, 'game id:' + id);
-                    socket.broadcast.to(id).emit('open message', {
+                    console.log('open failed:', 'session id:' + sessionID, 'game id:' + id);
+                    socket.broadcast.to(id).emit('open failed message', {
                         ret: 0,
                         msg: ''
                     });
-                });
-
+                }
             }
         });
     })

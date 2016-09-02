@@ -322,16 +322,25 @@
 			_czc.push(["_trackEvent","LOVO_cola","开一瓶"]);
 		}
 
-		function open() {
-			socket.emit('open', id, function(data) {
+		function open(playAgain = 0) {
+			socket.emit('open', {id:id,playAgain:playAgain}, function(data) {
+				console.log(data);
 				if (data.ret == 0 && complete == false) {
 					getAct();
 					complete = true;
-				} else {
+				}
+				else if( data.ret == 1000 ){
+					getActFail();
+					$('.actImgFailBtn').bind('click', function(){
+						open(1);
+					})
+				}
+				else {
 					showError(data.msg);
 				}
 			});
 		}
+
 		socket.on('connect', function() {
 
 		});
