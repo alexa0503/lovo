@@ -322,7 +322,8 @@
 			_czc.push(["_trackEvent","LOVO_cola","开一瓶"]);
 		}
 
-		function open(playAgain = 0) {
+		function open(p) {
+			var playAgain = p || 0;
 			socket.emit('open', {id:id,playAgain:playAgain}, function(data) {
 				console.log(data);
 				if (data.ret == 0 && complete == false) {
