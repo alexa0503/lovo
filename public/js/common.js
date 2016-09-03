@@ -541,12 +541,12 @@ function getActFail() {
 
     setTimeout(function(){
         bgm.stop();
-        bgm1=createjs.Sound.play("bgm1");
+        //bgm1=createjs.Sound.play("bgm1");
         setTimeout(function(){
             //bgm2=createjs.Sound.play("bgm2");
             setTimeout(function(){
                 bgm=createjs.Sound.play("bgm",{interrupt: createjs.Sound.INTERRUPT_ANY, loop:-1});
-            },3500);
+            },3000);
         },500);
     },850);
 
