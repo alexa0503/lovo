@@ -80,7 +80,11 @@ function setupManifest() {
     });
 
     manifest.push({
-        src: "/images/actImgFail.png"
+        src: "/images/actImgFail1.png"
+    });
+
+    manifest.push({
+        src: "/images/actImgFail2.png"
     });
 
     startPreload();
@@ -442,7 +446,8 @@ function getAct() {
     $('.page').hide();
     $('.pageAct').show();
 
-    $('.actImgFail').hide();
+    $('.actImgFail1').hide();
+    $('.actImgFail2').hide();
     $('.actImgFailBtn').hide();
 
     setTimeout(function() {
@@ -482,7 +487,7 @@ function getAct() {
 		_czc.push(["_trackEvent","LOVO_jd","恭喜您获得红包"]);
     }, 3300);
 
-    $('.aImg1').addClass('aImg1Act');
+    $('.aImg1').addClass('aImg1Act').show();
     $('.ai1').addClass('ai1Act').show();
     $('.ai2').addClass('ai2Act').show();
     $('.ai3').addClass('ai3Act').show();
@@ -528,19 +533,20 @@ function getActFail() {
     //     $('.pageActBtn1,.pageActBtn2').delay(500).fadeIn(500);
     // }, 3200);
     setTimeout(function(){
-        $('.aImg1').removeClass('aImg1Act');
-        $('.actImgFail').addClass('upShowA1').show();
-        $('.actImgFailBtn').addClass('upShowA2').show();
+        $('.aImg1').removeClass('aImg1Act').hide();
+        $('.actImgFail1').addClass('upShow3').show();
+        $('.actImgFail2').addClass('upShow4').show();
+        $('.actImgFailBtn').addClass('upShow5').show();
     },3000);
 
     setTimeout(function(){
         bgm.stop();
-        bgm1=createjs.Sound.play("bgm1");
+        //bgm1=createjs.Sound.play("bgm1");
         setTimeout(function(){
             //bgm2=createjs.Sound.play("bgm2");
             setTimeout(function(){
                 bgm=createjs.Sound.play("bgm",{interrupt: createjs.Sound.INTERRUPT_ANY, loop:-1});
-            },3500);
+            },3000);
         },500);
     },850);
 
