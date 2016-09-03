@@ -147,8 +147,8 @@ app.get('/wx/share', function(req, res, next) {
                 data.debug = false;
                 data.title = '要不是这个H5,你可能这辈子都不会抢别人手机';
                 data.desc = 'LOVO乐优家 x 可口可乐     全亚洲家纺唯一授权品牌';
-                data.imgUrl = 'http://cola.jim-studio.net/images/share.jpg';
-                data.link = 'http://cola.jim-studio.net';
+                data.imgUrl = credentials.wx.url+'/images/share.jpg';
+                data.link = credentials.wx.url;
                 //console.log(requestUrl); // Show the HTML for the Google homepage.
                 res.send(data);
             }
