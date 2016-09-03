@@ -107,10 +107,11 @@ select,input,textarea{font-family:inherit; outline:none;}
 .page52{ background:url(../images/12.png) 0 0 no-repeat;}
 
 /*pageAct*/
-.actImgFail{ background:url(../images/actImgFail.png) 0 0 no-repeat;}
+.actImgFail1{ background:url(../images/actImgFail1.png) 0 0 no-repeat;}
+.actImgFail2{ background:url(../images/actImgFail2.png) 0 0 no-repeat;}
 .actImgFailBtn{
     left:190px;
-    top:250px;}
+    top:355px;}
 .aImg1{ background:url(../images/actImg1.png) 0 0 no-repeat; width:196px; height:487px; left:222px; top:152px;}
 .aImg1Act{-webkit-animation:aImg1Act 1s 0s linear both;}
 @-webkit-keyframes aImg1Act{
