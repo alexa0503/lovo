@@ -275,7 +275,7 @@ io.sockets.on('connection', function(socket) {
                 var n = Math.random();
                 console.log(n);
                 //var n = 1;
-                if ( n < 0.5 || data.playAgain == 1){
+                if ( n < 0.3 || data.playAgain == 1){
                     result.status = 2;
                     result.save(function(err) {
                         if (err) console.log(err);
