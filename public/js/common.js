@@ -16,10 +16,8 @@ function randomNumb(minNumb, maxNumb) {
 
 var wHeight;
 var orgHeight;
-var link1 = "http://coupon.m.jd.com/coupons/show.action?key=f3c85d54173642cc9364e658e919048c&roleId=3633901&to=home.m.jd.com/wallet/coupons
-";
-var link2 = "http://coupon.m.jd.com/coupons/show.action?key=f3c85d54173642cc9364e658e919048c&roleId=3633901&to=home.m.jd.com/wallet/coupons
-";
+var link1 = "http://coupon.m.jd.com/coupons/show.action?key=f3c85d54173642cc9364e658e919048c&roleId=3633901&to=home.m.jd.com/wallet/coupons";
+var link2 = "http://coupon.m.jd.com/coupons/show.action?key=f3c85d54173642cc9364e658e919048c&roleId=3633901&to=home.m.jd.com/wallet/coupons";
 $(document).ready(function () {
     wHeight = $(window).height();
     orgHeight = $(window).height();
