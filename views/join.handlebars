@@ -255,7 +255,7 @@
         var id = '{{id}}';
         var complete = false;
         var pageNumb = 2;
-		var socket = io.connect('http://{{hostname}}:3000',{ transports : ['websocket']});
+		var socket = io.connect('http://{{hostname}}:{{port}}',{ transports : ['websocket']});
         socket.on('connect', function() {
 
         });

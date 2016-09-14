@@ -123,6 +123,8 @@ function sleep(milliSeconds) {
 //app.use('/', routes);
 //app.use('/users', users);
 app.locals.hostname = credentials.hostname;
+app.locals.port = process.env.PORT || 4000;
+console.log(app.locals.port);
 app.get('/', function(req, res, next) {
     //console.log(app.get('env'));
     res.render('index', {
