@@ -22,7 +22,7 @@ var qr = require('qrcode');
 
 app.use(express.static(path.join(__dirname, 'public')));
 //监听端口
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 4000);
 server.listen(app.get('port'), function() {
     console.log('Express server listening on port ' + app.get('port'));
 });
@@ -143,12 +143,12 @@ app.get('/wx/share', function(req, res, next) {
             if (error) next(error);
             if (!error && response.statusCode == 200) {
                 var data = JSON.parse(body);
-                data.appId = 'wx29b5cd93f26b8f14';
+                data.appId = credentials.wx.appId;
                 data.debug = false;
                 data.title = '要不是这个H5,你可能这辈子都不会抢别人手机';
                 data.desc = 'LOVO乐优家 x 可口可乐     全亚洲家纺唯一授权品牌';
-                data.imgUrl = 'http://cola.jim-studio.net/images/share.jpg';
-                data.link = 'http://cola.jim-studio.net';
+                data.imgUrl = credentials.wx.url+'/images/share.jpg';
+                data.link = credentials.wx.url;
                 //console.log(requestUrl); // Show the HTML for the Google homepage.
                 res.send(data);
             }
