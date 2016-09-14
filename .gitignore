@@ -31,3 +31,6 @@ npm-debug.log
 
 bower_components
 credentials.js
+
+.idea
+.DS_Store

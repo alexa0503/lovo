@@ -16,38 +16,51 @@ function randomNumb(minNumb, maxNumb) {
 
 var wHeight;
 var orgHeight;
-$(document).ready(function() {
-    wHeight=$(window).height();
-    orgHeight=$(window).height();
-    if(wHeight<832){
-        wHeight=832;
+var link1 = "http://coupon.yhd.com/merchantCoupon/couponReceiveN-1325-389565-a7f1493ceb5a118c8f80";
+var link2 = "http://coupon.yhd.com/merchantCoupon/couponReceiveN-1325-389565-a7f1493ceb5a118c8f80";
+var link3 = "http://coupon.yhd.com/merchantCoupon/couponReceiveN-1325-389594-d645c1fdd0adc8a03fd6";
+$(document).ready(function () {
+    wHeight = $(window).height();
+    orgHeight = $(window).height();
+    if (wHeight < 832) {
+        wHeight = 832;
     }
 
-    var bli=orgHeight/1008;
-    $('.page').css('-webkit-transform','scale('+bli+')');
+    var bli = orgHeight / 1008;
+    $('.page').css('-webkit-transform', 'scale(' + bli + ')');
 
-    if(orgHeight<1008){
-        $('.page').css('-webkit-transform-origin',"50% 50%");
+    if (orgHeight < 1008) {
+        $('.page').css('-webkit-transform-origin', "50% 50%");
     }
 
-    $('.h832').css('padding-top',(wHeight-832)/2+'px');
+    $('.h832').css('padding-top', (wHeight - 832) / 2 + 'px');
     $('.pageOuter').height(orgHeight);
     $('.bgOuter').height(orgHeight);
-    $('.bg1').height(orgHeight+292);
-    $('.bg2').height(orgHeight+292);
+    $('.bg1').height(orgHeight + 292);
+    $('.bg2').height(orgHeight + 292);
     $('.page').height(orgHeight);
+    var linkNumb = randomNumb(1, 10);
+    if (linkNumb <= 5) {
+        $('.pageActBtn1').attr('href', link1);
+    }
+    else if (linkNumb <= 7) {
+        $('.pageActBtn1').attr('href', link2);
+    }
+    else {
+        $('.pageActBtn1').attr('href', link3);
+    }
 });
 
 var manifest, manifest2, manifest3, manifest4;
 var preload, preload2, preload3, preload4;
-var bgm,bgm1,bgm2;
+var bgm, bgm1, bgm2;
 //定义相关JSON格式文件列表
 function setupManifest() {
     createjs.Sound.alternateExtensions = ["mp3"];
     createjs.Sound.on("fileload", this.loadHandler, this);
-    createjs.Sound.registerSound({src: "/images/bgm.mp3",id: "bgm"});
-	createjs.Sound.registerSound({src: "/images/bgm1.mp3",id: "bgm1"});
-	createjs.Sound.registerSound({src: "/images/bgm2.mp3",id: "bgm2"});
+    createjs.Sound.registerSound({src: "/images/bgm.mp3", id: "bgm"});
+    createjs.Sound.registerSound({src: "/images/bgm1.mp3", id: "bgm1"});
+    createjs.Sound.registerSound({src: "/images/bgm2.mp3", id: "bgm2"});
 
     manifest = [];
     manifest.push({
@@ -97,8 +110,8 @@ function setupManifest2() {
         src: "/images/42.png"
     });
     /*manifest2.push({
-        src: "/images/51.png"
-    });*/
+     src: "/images/51.png"
+     });*/
     manifest2.push({
         src: "/images/61.png"
     });
@@ -117,7 +130,7 @@ function setupManifest2() {
     manifest2.push({
         src: "/images/66.png"
     });
-	manifest2.push({
+    manifest2.push({
         src: "/images/codeBg.png"
     });
     startPreload2();
@@ -259,33 +272,33 @@ var loadImgHeight4 = 0;
 function handleFileProgress(event) {
     loadImgHeight1 = preload.progress * 64;
     $(".loadImg2").height(loadImgHeight1 + loadImgHeight2 + loadImgHeight3 + loadImgHeight4);
-    setTimeout(function(){
-    	$('.loadImg5 span').html(Math.round((preload.progress+preload2.progress+preload3.progress+preload4.progress)*25));
-    	},100);
+    setTimeout(function () {
+        $('.loadImg5 span').html(Math.round((preload.progress + preload2.progress + preload3.progress + preload4.progress) * 25));
+    }, 100);
 }
 
 function handleFileProgress2(event) {
     loadImgHeight2 = preload2.progress * 64;
     $(".loadImg2").height(loadImgHeight1 + loadImgHeight2 + loadImgHeight3 + loadImgHeight4);
-    setTimeout(function(){
-    	$('.loadImg5 span').html(Math.round((preload.progress+preload2.progress+preload3.progress+preload4.progress)*25));
-    	},100);
+    setTimeout(function () {
+        $('.loadImg5 span').html(Math.round((preload.progress + preload2.progress + preload3.progress + preload4.progress) * 25));
+    }, 100);
 }
 
 function handleFileProgress3(event) {
     loadImgHeight3 = preload3.progress * 64;
     $(".loadImg2").height(loadImgHeight1 + loadImgHeight2 + loadImgHeight3 + loadImgHeight4);
-    setTimeout(function(){
-    	$('.loadImg5 span').html(Math.round((preload.progress+preload2.progress+preload3.progress+preload4.progress)*25));
-    	},100);
+    setTimeout(function () {
+        $('.loadImg5 span').html(Math.round((preload.progress + preload2.progress + preload3.progress + preload4.progress) * 25));
+    }, 100);
 }
 
 function handleFileProgress4(event) {
     loadImgHeight4 = preload4.progress * 64;
     $(".loadImg2").height(loadImgHeight1 + loadImgHeight2 + loadImgHeight3 + loadImgHeight4);
-    setTimeout(function(){
-    	$('.loadImg5 span').html(Math.round((preload.progress+preload2.progress+preload3.progress+preload4.progress)*25));
-    	},100);
+    setTimeout(function () {
+        $('.loadImg5 span').html(Math.round((preload.progress + preload2.progress + preload3.progress + preload4.progress) * 25));
+    }, 100);
 }
 
 //全度资源加载完毕
@@ -338,13 +351,13 @@ function goPage1() {
         $('.page0').fadeOut(500);
         if (pageNumb == 1) {
             $('.page1').fadeIn(500);
-            setTimeout(function() {
+            setTimeout(function () {
                 page1Act();
             }, 500);
-			_czc.push(["_trackEvent","LOVO_cola","首页"]);
+            _czc.push(["_trackEvent", "LOVO_cola", "首页"]);
         } else {
             $('.page5').fadeIn(500);
-            setTimeout(function() {
+            setTimeout(function () {
                 page5Act();
             }, 500);
         }
@@ -353,7 +366,7 @@ function goPage1() {
 
 function loadHandler(event) {
     // 这会引发针对每个已注册的声音。
-    bgm=createjs.Sound.play("bgm",{interrupt: createjs.Sound.INTERRUPT_ANY, loop:-1});
+    bgm = createjs.Sound.play("bgm", {interrupt: createjs.Sound.INTERRUPT_ANY, loop: -1});
 }
 
 function page1Act() {
@@ -364,8 +377,8 @@ function page1Act() {
     $('.page14').addClass('upShow5').show();
     $('.page15').addClass('upShow6').show();
     $('.page16').addClass('upShow7').show();
-    setTimeout(function() {
-		$('.page14').removeClass('upShow5').addClass('page15Act');
+    setTimeout(function () {
+        $('.page14').removeClass('upShow5').addClass('page15Act');
         $('.page15').removeClass('upShow6').addClass('page15Act');
         $('.page1Btn2,.page1Btn3').show();
     }, 2000);
@@ -378,15 +391,15 @@ function goPage2() {
         isGo2 = true;
         $('.page1').fadeOut(500);
         $('.page2').fadeIn(500);
-        setTimeout(function() {
+        setTimeout(function () {
             page2Act();
-			_czc.push(["_trackEvent","LOVO_cola","等待好友加入"]);
+            _czc.push(["_trackEvent", "LOVO_cola", "等待好友加入"]);
         }, 500);
     }
 }
 
 function page2Act() {
-    countdownInterval = setInterval(function() {
+    countdownInterval = setInterval(function () {
         countdown();
     }, 1000);
 }
@@ -408,7 +421,7 @@ function nomanCountdown() {
     $('.page2').hide();
     $('.page3').show();
     $('.page34').addClass('page34Act');
-    setTimeout(function() {
+    setTimeout(function () {
         $('.page31').fadeIn(500);
     }, 200);
 }
@@ -421,11 +434,11 @@ function getMobile2() {
     clearInterval(countdownInterval);
     $('.page2').hide();
     $('.page4').show();
-	_czc.push(["_trackEvent","LOVO_cola","好友加入成功"]);
+    _czc.push(["_trackEvent", "LOVO_cola", "好友加入成功"]);
 }
 
 function page5Act() {
-    socket.emit('join', id, function(res) {
+    socket.emit('join', id, function (res) {
         console.log(res);
         if (res.ret != 0) {
             isConnect = false;
@@ -438,41 +451,41 @@ function getAct() {
     $('.page').hide();
     $('.pageAct').show();
 
-    setTimeout(function() {
+    setTimeout(function () {
         $('.bg2').show();
     }, 900);
 
-    setTimeout(function() {
+    setTimeout(function () {
         $('.pageActImg1').addClass('upShowA1').show();
         $('.pageActImg2').addClass('upShowA2').show();
         $('.pageActImg3').addClass('upShowA3').show();
         $('.pageActBtn1,.pageActBtn2').delay(500).fadeIn(500);
     }, 3200);
 
-    setTimeout(function(){
+    setTimeout(function () {
         bgm.stop();
-        bgm1=createjs.Sound.play("bgm1");
-        setTimeout(function(){
-            bgm2=createjs.Sound.play("bgm2");
-            setTimeout(function(){
-                bgm=createjs.Sound.play("bgm",{interrupt: createjs.Sound.INTERRUPT_ANY, loop:-1});
-            },3500);
-        },500);
-    },850);
+        bgm1 = createjs.Sound.play("bgm1");
+        setTimeout(function () {
+            bgm2 = createjs.Sound.play("bgm2");
+            setTimeout(function () {
+                bgm = createjs.Sound.play("bgm", {interrupt: createjs.Sound.INTERRUPT_ANY, loop: -1});
+            }, 3500);
+        }, 500);
+    }, 850);
 
-    setTimeout(function() {
-        $('.pageRes13').addClass('pageRes13Act').show();
-        $('.pageRes13').touchwipe({
-            min_move_x: 40, //横向灵敏度
-            min_move_y: 40, //纵向灵敏度
-            wipeUp: function() {
-                goProduct();
-            }, //向上滑动事件
-            preventDefaultEvents: true //阻止默认事件
-        });
-		//$('.pageRes13').on('click',function(){goProduct();});
+    setTimeout(function () {
+        //$('.pageRes13').addClass('pageRes13Act').show();
+        // $('.pageRes13').touchwipe({
+        //     min_move_x: 40, //横向灵敏度
+        //     min_move_y: 40, //纵向灵敏度
+        //     wipeUp: function() {
+        //         goProduct();
+        //     }, //向上滑动事件
+        //     preventDefaultEvents: true //阻止默认事件
+        // });
+        //$('.pageRes13').on('click',function(){goProduct();});
         $('.bg2').hide();
-		_czc.push(["_trackEvent","LOVO_cola","恭喜您获得红包"]);
+        _czc.push(["_trackEvent", "LOVO_cola", "恭喜您获得红包"]);
     }, 3300);
 
     $('.aImg1').addClass('aImg1Act');
@@ -532,25 +545,25 @@ function getLottery() {
 
     //成功中奖
     /*closeLoading();
-    $('.pageAct').hide();
-    $('.pageRes1').show();*/
+     $('.pageAct').hide();
+     $('.pageRes1').show();*/
 
     //已经开过红包
     /*closeLoading();
-    $('.pageAct').hide();
-    $('.pageRes2').show();*/
+     $('.pageAct').hide();
+     $('.pageRes2').show();*/
 
     //开红包失败 或者 未中奖
     /*closeLoading();
-    $('.pageAct').hide();
-    $('.pageRes3').show();*/
+     $('.pageAct').hide();
+     $('.pageRes3').show();*/
 
     //口令
-    productCloseTo=2;
+    productCloseTo = 2;
     closeLoading();
     $('.pageAct').hide();
     $('.pageRes4').show();
-	_czc.push(["_trackEvent","LOVO_cola","恭喜您获得奖品"]);
+    _czc.push(["_trackEvent", "LOVO_cola", "恭喜您获得奖品"]);
 }
 
 function showError(err_msg) {
@@ -561,40 +574,40 @@ function showError(err_msg) {
 }
 function hideError() {
     $('.pageError').hide();
-	$('.page4').show();
-	$('.page5').show();
+    $('.page4').show();
+    $('.page5').show();
 }
 
-var productCloseTo=1;
-function goProduct(){
-    if(productCloseTo==1){
+var productCloseTo = 1;
+function goProduct() {
+    if (productCloseTo == 1) {
         $('.pageAct').addClass('upHidden');
     }
-    else{
+    else {
         $('.pageRes4').addClass('upHidden');
     }
     $('.pageProduct').addClass('downShow').show();
-	_czc.push(["_trackEvent","LOVO_cola","下拉有惊喜"]);
+    _czc.push(["_trackEvent", "LOVO_cola", "下拉有惊喜"]);
 }
 
-function closeProduct(){
-    if(productCloseTo==1){
+function closeProduct() {
+    if (productCloseTo == 1) {
         $('.pageAct').removeClass('upHidden').show();
     }
-    else{
+    else {
         $('.pageRes4').removeClass('upHidden').show();
     }
     $('.pageProduct').removeClass('downShow').hide();
 }
 
-function showCode(code,trackNumb){
-	$('.code2').html(code);
+function showCode(code, trackNumb) {
+    $('.code2').html(code);
     $('.pageRuleBg').show();
-	$('.pageProductCode').fadeIn(500);
-	_czc.push(["_trackEvent","LOVO_cola","产品"+trackNumb]);
-	}
+    $('.pageProductCode').fadeIn(500);
+    _czc.push(["_trackEvent", "LOVO_cola", "产品" + trackNumb]);
+}
 
-function closePageProductCode(){
+function closePageProductCode() {
     $('.pageRuleBg').hide();
-	$('.pageProductCode').fadeOut(500);
-	}
+    $('.pageProductCode').fadeOut(500);
+}
