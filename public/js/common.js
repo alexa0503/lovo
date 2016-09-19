@@ -16,9 +16,9 @@ function randomNumb(minNumb, maxNumb) {
 
 var wHeight;
 var orgHeight;
-var link1 = "http://coupon.yhd.com/merchantCoupon/couponReceiveN-1325-389565-a7f1493ceb5a118c8f80";
-var link2 = "http://coupon.yhd.com/merchantCoupon/couponReceiveN-1325-389565-a7f1493ceb5a118c8f80";
-var link3 = "http://coupon.yhd.com/merchantCoupon/couponReceiveN-1325-389594-d645c1fdd0adc8a03fd6";
+var link1 = "http://coupon.yhd.com/merchantCoupon/couponReceiveN-1325-390498905-29a5b34c90cde5673433";
+var link2 = "http://coupon.yhd.com/merchantCoupon/couponReceiveN-1325-390581881-ab17a505ad2050555ab6";
+var link3 = "http://coupon.yhd.com/merchantCoupon/couponReceiveN-1325-390583484-1d7f1c0fa1954869a0f1";
 $(document).ready(function () {
     wHeight = $(window).height();
     orgHeight = $(window).height();
